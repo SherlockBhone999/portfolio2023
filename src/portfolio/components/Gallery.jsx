@@ -30,8 +30,8 @@ const Picture = ({item, img}) => {
   
   return (<mesh ref={ref} position={item.position}
   rotation={item.rotation} scale={item.scale}>
-    <boxGeometry args={[0,15,15]} />
-    <meshStandardMaterial map={chosen} />
+        <boxGeometry args={[0,15,15]} />
+        <meshStandardMaterial map={chosen} />
   </mesh>)
 }
 
@@ -65,6 +65,7 @@ const Circle =({img}) =>{
     <Picture item={p2} img={img}/>
     <Picture  item={p3} img={img}/>
     <Picture  item={p4} img={img}/>
+
   </mesh>
 }
 
@@ -75,7 +76,7 @@ const Wall = ({img}) => {
   
   useFrame(( {camera})=>{
     if(chosenCamera === 'gallery' ){
-      vec.set( -50*2, 10, -86*2 )
+      vec.set( -50-25-13+6+5, 0, -86-43-22 +11+7)
       camera.position.lerp( vec, .02 )
       camera.lookAt( 0,0,0 )
     }
@@ -84,7 +85,6 @@ const Wall = ({img}) => {
   return (<mesh ref={ref} position={[20,0,0]}>
     <boxGeometry args={[30,30,1]} />
     <meshLambertMaterial map={img}/>
-    
   </mesh>)
 }
 

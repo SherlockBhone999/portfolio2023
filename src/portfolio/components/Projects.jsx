@@ -2,6 +2,7 @@ import Gallery from './Gallery'
 import Disk from './Disk'
 import { useState, useContext , useEffect } from 'react'
 import { Context } from '../Portfolio'
+import {GalleryCircle} from '../../assets/white_round_exhibition_gallery/Gallery_circle'
 
 const DiskContainer = ({p}) => {
   const [listening, setListening ] = useState(false)
@@ -14,13 +15,19 @@ const DiskContainer = ({p}) => {
      setTimeout(()=>{ setListening(false) }, 1000 )
     }
   })
-  return <mesh position={p}>
+  return <group position={p}>
     <Disk listening={listening} />
     
-    <mesh rotation={[0, Math.PI, 0]} position={[-25, 0, -43]} >
-      <Gallery />
+    <mesh scale={1} position={[-25,0, -46]}>
+      <spotLight position = {[-50,0,-86]} intensity={5} color='gray'/>
+      <directionalLight position={[0, 20, 0]} intensity={0.5} color='blue'/>
+      <GalleryCircle />
     </mesh>
-  </mesh>
+    
+    <mesh rotation={[0, Math.PI, 0]} position={[-20,0,-38]} scale={0.2}> 
+      <Gallery /> 
+    </mesh>
+  </group>
 }
 
 export default function Projects({p}){

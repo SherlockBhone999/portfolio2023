@@ -10,7 +10,7 @@ Title: White round exhibition gallery
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export function Model(props) {
+export function GalleryCircle(props) {
   const { nodes, materials } = useGLTF('/gallery_circle-transformed.glb')
   return (
     <group {...props} dispose={null}>

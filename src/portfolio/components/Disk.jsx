@@ -1,16 +1,13 @@
 import { useFrame, useLoader } from '@react-three/fiber'
 import { useState,useEffect, useRef,useContext } from 'react'
-import concreteimg from '../images/concrete.jpg'
 import {Context} from '../Portfolio'
-import { TextureLoader } from 'three'
-
+import { CircleRug} from '../../assets/low-poly_circle_rug/Circle_rug'
 
 const DiskObj = () => {
-  const [concreteImg] = useLoader(TextureLoader, [concreteimg])
+  
   return (
     <mesh >
-    <cylinderGeometry args={[20,20,0.5]}/>
-    <meshLambertMaterial map={concreteImg} />
+      <CircleRug />
     </mesh>
     )
 }

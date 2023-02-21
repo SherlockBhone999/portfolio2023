@@ -42,7 +42,7 @@ const ForAirplane = () => {
     <button onClick={()=>setAirplaneYaw('standby') }>Standby </button>
     <button onClick={()=>setAirplaneYaw('left') }>left </button>
     <button onClick={()=>setAirplaneYaw('right') }>right </button>
-    <button onClick={()=>setChosenCamera('airplane') }>drive airplane</button>
+    <button onClick={()=>setChosenCamera('orbit')} > Orbital View </button >
     </div>
     </div>
     )
