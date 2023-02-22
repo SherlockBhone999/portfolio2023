@@ -178,12 +178,12 @@ const getPitchesForSlope= () => {
   }
   // 0 to 20
   for( let i= 100; i<= 119 ; i++){
-    const z = Math.PI/180 * (i-99)
+    const z = 0
     array[i] = z
   }
   //20 to 0
   for( let i= 120; i<= 139 ; i++){
-    const z = (Math.PI/180 * 20) - (Math.PI/180 * (i-119))
+    const z = 0
     array[i] = z
   }
   //0
@@ -218,12 +218,12 @@ const getPitchesForAxisParallel= ( ) => {
   }
   // 0 to 20
   for( let i= 120; i<= 139 ; i++){
-    const z = Math.PI/180 * (i-119)
+    const z = 0
     array[i] = z
   }
   //20 to 0
   for( let i= 140; i<= 159 ; i++){
-    const z = (Math.PI/180 * 20) - (Math.PI/180 * (i-139))
+    const z = 0
     array[i] = z
   }
   //0

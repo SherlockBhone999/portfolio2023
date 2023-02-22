@@ -90,14 +90,19 @@ const getFilteredDotArray = (p, r, currentIndex) => {
 
 const Dot = ({p, color}) => {
   return <mesh position={p} >
-    <sphereGeometry args={[0.1]} />
+    <sphereGeometry args={[0.2]} />
     <meshLambertMaterial color={color} />
   </mesh>
 }
 
+
+
+
 export const Track = ({p,r, currentIndex, color }) =>{
   
   const dotPoints = getFilteredDotArray(p, r, currentIndex )
+
+  
   
   return <group position={p}>
     {dotPoints.map(point =>{
