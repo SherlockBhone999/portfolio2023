@@ -10,7 +10,7 @@ Title: Gold Bar Low Poly
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export function Model(props) {
+export function Goldbar(props) {
   const { nodes, materials } = useGLTF('/goldbar-transformed.glb')
   return (
     <group {...props} dispose={null}>

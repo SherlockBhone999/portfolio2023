@@ -6,6 +6,8 @@ import { data } from './data'
 const { pointsFromItoP, pointsFromPtoI, pointsFromItoO, pointsFromOtoI, pointsFromPtoO, pointsFromOtoP , pitchesForSlope, pitchesForAxisParallel } = data
 
 import { Airplane2 } from '../assets/plane/Plane'
+import { PlaneRed } from '../assets/airplane_white_and_red/Plane_red'
+
 /////////////
 
 const move = (setP, array, setPitch , pitchesArray ) =>{
@@ -190,6 +192,12 @@ const Box = ( ) => {
       <Airplane2 />
     </mesh>
 
+{/*
+   <mesh position={[0,2,0]} rotation={[0, -Math.PI/2, 0]} scale={2}>
+      <PlaneRed />
+   </mesh >
+*/} 
+   
   </mesh>  
   
   )

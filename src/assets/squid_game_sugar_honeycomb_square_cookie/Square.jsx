@@ -10,7 +10,7 @@ Title: Squid Game Sugar Honeycomb Square Cookie
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export function Model(props) {
+export function SquidSquare(props) {
   const { nodes, materials } = useGLTF('/square-transformed.glb')
   return (
     <group {...props} dispose={null}>

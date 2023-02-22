@@ -35,10 +35,10 @@ function App() {
 
       <ambientLight intensity={0.5} />
       { chosenCamera ==='orbit'? <OrbitControls /> : null }
-      <Stars />
+      
       <Pyramid />
       <AirplaneContainer />
-      
+      <spotLight position={[5,3,8]} intensity={5} color={'yellow'} />
     </Canvas>
 
     <ControlPanel />

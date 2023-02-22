@@ -10,7 +10,7 @@ Title: 3D square Frame
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export function Model(props) {
+export function FrameBlock(props) {
   const { nodes, materials } = useGLTF('/square_frame-transformed.glb')
   return (
     <group {...props} dispose={null}>

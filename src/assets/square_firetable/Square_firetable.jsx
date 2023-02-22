@@ -10,7 +10,7 @@ Title: TD-141 - A - Original Square Fire Table
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export function Model(props) {
+export function SquareFiretable(props) {
   const { nodes, materials } = useGLTF('/square_firetable-transformed.glb')
   return (
     <group {...props} dispose={null}>

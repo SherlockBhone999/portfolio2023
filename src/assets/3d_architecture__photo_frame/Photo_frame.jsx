@@ -10,11 +10,11 @@ Title: 3D Architecture | Photo frame
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export function Model(props) {
+export function PhotoFrame1(props) {
   const { nodes, materials } = useGLTF('/photo_frame-transformed.glb')
   return (
     <group {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 0]} scale={0.01}>
+      <group rotation={[-Math.PI / 2, 0, 0]} scale={0.1}>
         <group rotation={[Math.PI / 2, 0, 0]}>
           <group rotation={[0, Math.PI / 2, 0]}>
             <mesh geometry={nodes['Box046_Material_#25_0'].geometry} material={materials.Material_25} />

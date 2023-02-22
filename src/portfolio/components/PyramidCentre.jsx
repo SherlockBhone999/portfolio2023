@@ -5,15 +5,7 @@ import Projects from './Projects'
 import Other from './Other'
 import Intro from './Intro'
 
-
-const Dot = () => {
-  const ref = useRef()
-  
-  return <mesh ref={ref} position={[40,0,0]}>
-    <boxBufferGeometry args={[2,2,2]} />
-    <meshStandardMaterial color='hotpink' />
-  </mesh>
-}
+import { Goldbar } from '../../assets/gold_bar_low_poly/Goldbar'
 
 
 export default function PyramidCentre(){
@@ -26,9 +18,13 @@ export default function PyramidCentre(){
   
   return (
     <mesh ref={ref} >
-      <boxGeometry args={[10,10,10] }/>
+      <boxGeometry args={[10,0.5,5] }/>
       <meshStandardMaterial color='white' />
-      <Dot />
+    
+      <mesh position={[0,1,0]} scale={1.7}>
+        <Goldbar />
+      </mesh>
+      
     </mesh>
     )
 }

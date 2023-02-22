@@ -1,7 +1,6 @@
 import { useRef } from 'react'
 
 
-
 export const myWallData = [
   {
     p : [-60, 10, -10 ],
@@ -97,9 +96,12 @@ export const Wall = ({p, r, s }) => {
   const ref = useRef()
 
   
-  return <mesh ref={ref} position={p} rotation={r} scale={s} >
+  return <group ref={ref} position={p} rotation={r} scale={s} >
+  <mesh >
     <boxGeometry args={[20,20,2]} />
     <meshLambertMaterial color='white' />
-  </mesh>
+  </mesh >
+  
+  </group>
 }
 

@@ -2,6 +2,9 @@
 import Disk from './Disk'
 import { useState, useContext , useEffect } from 'react'
 import { Context } from '../Portfolio'
+import { PhotoFrame1 } from '../../assets/3d_architecture__photo_frame/Photo_frame'
+import { SquareFiretable } from '../../assets/square_firetable/Square_firetable'
+
 
 const DiskContainer = ({p}) => {
   const [listening, setListening ] = useState(false)
@@ -24,5 +27,16 @@ export default function Other({p}){
   
   return <group>
   <DiskContainer p={p}/>
+  
+  <mesh position={[-50, 0, 86]} scale={2}>
+    <PhotoFrame1 />
+  </mesh>
+  
+  <mesh position={[-50, 5, 86]} scale={10}>
+    <SquareFiretable />
+  </mesh>
+  
+  
+  
   </group>
 }

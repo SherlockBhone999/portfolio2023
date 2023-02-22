@@ -8,9 +8,25 @@ import {Context} from '../Portfolio'
 import {data } from '../data'
 const { p1, p2, p3, p4 } = data
 
-
+import { FrameBlock } from '../../assets/3d_square_frame/Square_frame'
+import { StatueStand } from '../../assets/statue_stand/Statue_stand'
+import { SquidSquare } from '../../assets/squid_game_sugar_honeycomb_square_cookie/Square'
 
 //////////////////////////////////////////////////////////////
+
+const PicObject = ({chosen}) => {
+  
+  return (
+    <mesh >
+      <boxGeometry args={[1.2,14.8,14.8]} />
+      <meshStandardMaterial map={chosen} />
+      <mesh >
+        <boxGeometry args={[1,15,15]} />
+        <meshLambertMaterial color='black' />
+      </mesh>
+    </mesh>
+    )
+}
 
 
 const Picture = ({item, img}) => {
@@ -30,8 +46,7 @@ const Picture = ({item, img}) => {
   
   return (<mesh ref={ref} position={item.position}
   rotation={item.rotation} scale={item.scale}>
-        <boxGeometry args={[0,15,15]} />
-        <meshStandardMaterial map={chosen} />
+    <PicObject chosen={chosen} />
   </mesh>)
 }
 
@@ -65,7 +80,12 @@ const Circle =({img}) =>{
     <Picture item={p2} img={img}/>
     <Picture  item={p3} img={img}/>
     <Picture  item={p4} img={img}/>
-
+    <mesh scale={0.3} position={[15,-15,-5]}>
+      <FrameBlock />
+    </mesh>
+    
+    
+    
   </mesh>
 }
 
@@ -76,7 +96,7 @@ const Wall = ({img}) => {
   
   useFrame(( {camera})=>{
     if(chosenCamera === 'gallery' ){
-      vec.set( -50-25-13+6+5, 0, -86-43-22 +11+7)
+      vec.set( -50-25-13+6+5, 10, -86-43-22 +11+7)
       camera.position.lerp( vec, .02 )
       camera.lookAt( 0,0,0 )
     }
@@ -119,6 +139,16 @@ export default function Gallery(){
   <Circle img={currentImg} />
   <Wall img={currentImg} />
   <Button currentImg={currentImg} setCurrentImg={setCurrentImg} array={array} />
+  
+  <mesh position={[0, -64, 0]} scale={60} rotation={[0,Math.PI/6, 0]}>
+    <StatueStand />
+    <mesh position={[0,0.6,0]} scale={1.5}>
+      <SquidSquare />
+    </mesh>
+  </mesh>
+
+  
+
   </mesh >
 }
 
