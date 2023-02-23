@@ -187,16 +187,16 @@ const Box = ( ) => {
       <boxBufferGeometry args={[0.1,0.1,0.1]} />
       <meshLambertMaterial color="red" />
     </mesh>
-
+{/*
     <mesh position={[0,2,0]} rotation={[0,-Math.PI/2, 0]}>
       <Airplane2 />
     </mesh>
+*/}
 
-{/*
    <mesh position={[0,2,0]} rotation={[0, -Math.PI/2, 0]} scale={2}>
       <PlaneRed />
    </mesh >
-*/} 
+
    
   </mesh>  
   

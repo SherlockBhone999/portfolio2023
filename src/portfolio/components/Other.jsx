@@ -28,15 +28,5 @@ export default function Other({p}){
   return <group>
   <DiskContainer p={p}/>
   
-  <mesh position={[-50, 0, 86]} scale={2}>
-    <PhotoFrame1 />
-  </mesh>
-  
-  <mesh position={[-50, 5, 86]} scale={10}>
-    <SquareFiretable />
-  </mesh>
-  
-  
-  
   </group>
 }

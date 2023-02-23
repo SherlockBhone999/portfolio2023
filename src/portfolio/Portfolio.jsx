@@ -33,12 +33,12 @@ function App() {
   <div class='fixed w-full h-full p-5'>
     <Canvas class='bg-black ' >		
 
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={1} />
       { chosenCamera ==='orbit'? <OrbitControls /> : null }
       
       <Pyramid />
       <AirplaneContainer />
-      <spotLight position={[5,3,8]} intensity={5} color={'yellow'} />
+      
     </Canvas>
 
     <ControlPanel />

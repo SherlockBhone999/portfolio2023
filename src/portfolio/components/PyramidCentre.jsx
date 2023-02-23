@@ -24,7 +24,9 @@ export default function PyramidCentre(){
       <mesh position={[0,1,0]} scale={1.7}>
         <Goldbar />
       </mesh>
-      
+    
+      <spotLight position={[0,5,0]} intensity={10} color='yellow' />
+      }
     </mesh>
     )
 }
