@@ -47,15 +47,26 @@ function RunningTrack (){
   
   <Car p={carp} camerap={camerap}/>
 
-  <Track p={[0,0,0]} r={40} currentIndex={currentIndex} color={'lightblue'}/>
-  <Track p={[0,0,0]} r={45} currentIndex={currentIndex} color={'lightblue'}/>
+  <Track p={[0,0,0]} r={40} currentIndex={currentIndex} color={'black'}/>
+  <Track p={[0,0,0]} r={42.5} currentIndex={currentIndex} color={'gray'}/>
+  <Track p={[0,0,0]} r={45} currentIndex={currentIndex} color={'gray'}/>
+<Track p={[0,0,0]} r={47.5} currentIndex={currentIndex} color={'gray'}/>
+
   <Track p={[0,0,0]} r={50} currentIndex={currentIndex} color={'white'}/>
-  <Track p={[0,0,0]} r={55} currentIndex={currentIndex} color={'lightblue'}/>
-  <Track p={[0,0,0]} r={60} currentIndex={currentIndex} color={'lightblue'}/>
+  
+<Track p={[0,0,0]} r={52.5} currentIndex={currentIndex} color={'gray'}/>
+  <Track p={[0,0,0]} r={55} currentIndex={currentIndex} color={'gray'}/>
+  <Track p={[0,0,0]} r={57.5} currentIndex={currentIndex} color={'gray'}/>
+  <Track p={[0,0,0]} r={60} currentIndex={currentIndex} color={'black'}/>
   
   {wallData.map((item)=>{
-    return <Wall p={item.p} r={ item.r } s={item.s } />
+    return <Wall p={item.p} r={ item.r } s={item.s } img={item.img} />
   })}
+ 
+ <mesh position={[50,-5,0]}>
+  <boxGeometry args={[280,2,170]} />
+  <meshStandardMaterial color='lightpink'/>
+ </mesh>
  
   </group>
 }

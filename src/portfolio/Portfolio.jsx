@@ -27,11 +27,11 @@ const toLandscapeMode = () => {
 }
 
 function App() {
-  const {chosenCamera } = useContext(Context)
+  const {chosenCamera, bg } = useContext(Context)
   
   return (
   <div class='fixed w-full h-full p-5'>
-    <Canvas class='bg-black ' >		
+    <Canvas class={bg} >		
 
       <ambientLight intensity={1} />
       { chosenCamera ==='orbit'? <OrbitControls /> : null }
@@ -59,6 +59,7 @@ export default function Portfolio() {
   const [airplanePosition, setAirplanePosition ] = useState('intro')
   const [currentProject, setCurrentProject ] = useState(p1)
   const [moveCar , setMoveCar] = useState('')
+  const [bg, setBg] = useState('bg-white')
 
   
   return <Context.Provider value={{
@@ -74,7 +75,9 @@ export default function Portfolio() {
   currentProject,
   setCurrentProject,
   moveCar,
-  setMoveCar
+  setMoveCar,
+  bg,
+  setBg
   
   
   }}>

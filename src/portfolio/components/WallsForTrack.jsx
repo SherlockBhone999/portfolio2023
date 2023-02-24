@@ -1,47 +1,64 @@
 import { useRef } from 'react'
-
+import {TextureLoader} from 'three'
+import { useLoader } from '@react-three/fiber'
+import img1 from '../images/11.jpg'
+import img2 from '../images/23.jpg'
+import img3 from '../images/32.jpg'
+import img4 from '../images/34.jpg'
+import img5 from '../images/concrete.jpg'
+import img6 from '../images/169.jpg'
+import img7 from '../images/fullh.jpg'
+import img8 from '../images/fullv.jpg'
 
 export const myWallData = [
   {
     p : [-60, 10, -10 ],
     r : [0, 0  , 0],
-    s : 0
+    s : 0,
+    img: img1
   },
   {
     p : [10, 10, -60 ],
     r : [0, Math.PI/2  , 0],
-    s : 0
+    s : 0,
+    img: img2
   },
   {
     p : [40, 10, 10],
     r : [ 0, 0, 0],
-    s : 0
+    s : 0,
+    img: img3
   },
   {
     p : [ 110, 10, 60 ],
     r : [0, Math.PI/2  , 0],
-    s : 0
+    s : 0,
+    img: img4
   },
   {
     p : [160, 10, -10 ],
     r : [0, 0  , 0],
-    s : 0
+    s : 0,
+    img: img5
   },
   {
     p : [90, 10, -60 ],
     r : [0, Math.PI/2 , 0],
-    s : 0
+    s : 0,
+    img: img6
   },
 
   {
     p: [ 60, 10, 10],
     r : [ 0, 0, 0],
-    s : 0
+    s : 0,
+    img: img7
   },
   {
     p : [-10, 10, 60 ],
     r : [0, Math.PI/2  , 0],
-    s : 0
+    s : 0,
+    img: img8
   }
   ]
 
@@ -92,14 +109,18 @@ const getDistanceBetween = (currentIndex, currentWallNumber ) => {
   }
 }
 
-export const Wall = ({p, r, s }) => {
+export const Wall = ({p, r, s, img }) => {
   const ref = useRef()
-
+  const imgg = useLoader(TextureLoader,img)
   
   return <group ref={ref} position={p} rotation={r} scale={s} >
   <mesh >
     <boxGeometry args={[20,20,2]} />
-    <meshLambertMaterial color='white' />
+    <meshLambertMaterial color='black' />
+      <mesh position={[0,0,0]} >
+        <boxGeometry args={[19,19,2.5]} />
+        <meshStandardMaterial map={imgg} />
+      </mesh>
   </mesh >
   
   </group>

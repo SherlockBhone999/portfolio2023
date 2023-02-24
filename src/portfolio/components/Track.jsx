@@ -90,7 +90,7 @@ const getFilteredDotArray = (p, r, currentIndex) => {
 
 const Dot = ({p, color}) => {
   return <mesh position={p} >
-    <sphereGeometry args={[0.2]} />
+    <cylinderGeometry args={[1.3,1.3,1]} />
     <meshLambertMaterial color={color} />
   </mesh>
 }

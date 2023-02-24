@@ -6,12 +6,12 @@ import {Context} from '../Portfolio'
 
 export const getCameraPositionsArray = (bigArr) => {
   const array = []
-  for( let i =1 ; i <= 16; i++){
-    const a = bigArr[bigArr.length - (16-i)] 
+  for( let i =1 ; i <= 8; i++){
+    const a = bigArr[bigArr.length - (8-i)] 
     array.push(a)
   }
   
-  for ( let j=0; j<= bigArr.length - 17 ; j++){
+  for ( let j=0; j<= bigArr.length - 9 ; j++){
     const b = bigArr[j]
     array.push(b)
   }

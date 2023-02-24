@@ -50,11 +50,12 @@ const ForAirplane = () => {
 
 
 const ForOrbit = () =>{
-  const { setChosenCamera } = useContext(Context)
+  const { setChosenCamera , setBg } = useContext(Context)
   return <div class='grid'>
     <button onClick={()=>setChosenCamera('airplane')}> drive airplane </button >
     <button onClick={()=>setChosenCamera('car')}> drive car </button >
     <button onClick={()=>setChosenCamera('gallery')}> view gallery </button >
+    <button onClick={()=>setBg('bg-black')} > change bg </button>
   </div>
 }
 

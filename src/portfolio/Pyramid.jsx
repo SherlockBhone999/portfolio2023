@@ -13,6 +13,11 @@ const Container = () => {
     <Intro p={[100,0,0]} />
     <Projects p={[-50, 0,-86.60254]} />
     <Other p={[-50, 0, 86.60254]} />
+    
+    <mesh position={[0,-10,0]} >
+      <cylinderGeometry args={[150,150,2]} />
+      <meshStandardMaterial color='black' />
+    </mesh>
   </mesh>
 }
 
