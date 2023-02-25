@@ -38,7 +38,7 @@ export const moveforward = (setCarp, setCamerap , currentIndex, setCurrentIndex,
         }
         setCurrentIndex( currentIndex + i)
         
-      }, i*20) //20
+      }, i*40) //20
     }
   }
   
@@ -57,7 +57,7 @@ export const movebackward = (setCarp, setCamerap , currentIndex, setCurrentIndex
         }
         setCurrentIndex( currentIndex - i )
         
-      }, i*20)
+      }, i*40)
     }
   }
   

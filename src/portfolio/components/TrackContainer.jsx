@@ -47,23 +47,21 @@ function RunningTrack (){
   
   <Car p={carp} camerap={camerap}/>
 
-  <Track p={[0,0,0]} r={40} currentIndex={currentIndex} color={'black'}/>
-  <Track p={[0,0,0]} r={42.5} currentIndex={currentIndex} color={'gray'}/>
-  <Track p={[0,0,0]} r={45} currentIndex={currentIndex} color={'gray'}/>
-<Track p={[0,0,0]} r={47.5} currentIndex={currentIndex} color={'gray'}/>
-
-  <Track p={[0,0,0]} r={50} currentIndex={currentIndex} color={'white'}/>
+  <Track p={[0,0,0]} r={38} currentIndex={currentIndex} color={'black'}/>
   
-<Track p={[0,0,0]} r={52.5} currentIndex={currentIndex} color={'gray'}/>
-  <Track p={[0,0,0]} r={55} currentIndex={currentIndex} color={'gray'}/>
-  <Track p={[0,0,0]} r={57.5} currentIndex={currentIndex} color={'gray'}/>
-  <Track p={[0,0,0]} r={60} currentIndex={currentIndex} color={'black'}/>
+  
+  
+  <Track p={[0,0,0]} r={62} currentIndex={currentIndex} color={'black'}/>
   
   {wallData.map((item)=>{
     return <Wall p={item.p} r={ item.r } s={item.s } img={item.img} />
   })}
+  
+  <mesh position={[0,-5,0]}> 
+    <Road />
+  </mesh>
  
- <mesh position={[50,-5,0]}>
+ <mesh position={[50,-7,0]}>
   <boxGeometry args={[280,2,170]} />
   <meshStandardMaterial color='lightpink'/>
  </mesh>
@@ -74,4 +72,62 @@ function RunningTrack (){
 
 export default RunningTrack
 
+const TorusTrack = ({p,r,ra, color }) => {
+  
+  return (
+    <mesh position={p} rotation={r} >
+      <torusGeometry args={[ra,1.3,16,200,3.5]}/>
+      <meshStandardMaterial color={color} />
+    </mesh>
+    )
+}
 
+const Road = () => {
+  
+  return <group >
+      <TorusTrack p={[0,0,0]} r={[-Math.PI/2,0,0]} ra={40} color={'black'} />
+      <TorusTrack p={[0,0,0]} r={[Math.PI/2,0,0]} ra={40} color={'black'} />
+      <TorusTrack p={[100,0,0]} r={[-Math.PI/2,0,0]} ra={40} color={'black'} />
+      <TorusTrack p={[100,0,0]} r={[Math.PI/2,0,0]} ra={40} color={'black'} />
+      
+      <TorusTrack p={[0,0,0]} r={[-Math.PI/2,0,0]} ra={42.5} color={'lightblue'}/>
+      <TorusTrack p={[0,0,0]} r={[Math.PI/2,0,0]} ra={42.5} color={'lightblue'} />
+      <TorusTrack p={[100,0,0]} r={[-Math.PI/2,0,0]} ra={42.5} color={'lightblue'} />
+      <TorusTrack p={[100,0,0]} r={[Math.PI/2,0,0]} ra={42.5} color={'lightblue'} />
+      
+      <TorusTrack p={[0,0,0]} r={[-Math.PI/2,0,0]} ra={45} color={'lightblue'} />
+      <TorusTrack p={[0,0,0]} r={[Math.PI/2,0,0]} ra={45} color={'lightblue'} />
+      <TorusTrack p={[100,0,0]} r={[-Math.PI/2,0,0]} ra={45} color={'lightblue'} />
+      <TorusTrack p={[100,0,0]} r={[Math.PI/2,0,0]} ra={45} color={'lightblue'} />
+      
+      <TorusTrack p={[0,0,0]} r={[-Math.PI/2,0,0]} ra={47.5} color={'lightblue'} />
+      <TorusTrack p={[0,0,0]} r={[Math.PI/2,0,0]} ra={47.5} color={'lightblue'} />
+      <TorusTrack p={[100,0,0]} r={[-Math.PI/2,0,0]} ra={47.5} color={'lightblue'} />
+      <TorusTrack p={[100,0,0]} r={[Math.PI/2,0,0]} ra={47.5} color={'lightblue'} />
+      
+      <TorusTrack p={[0,0,0]} r={[-Math.PI/2,0,0]} ra={50} color={'white'}/>
+      <TorusTrack p={[0,0,0]} r={[Math.PI/2,0,0]} ra={50} color={'white'} />
+      <TorusTrack p={[100,0,0]} r={[-Math.PI/2,0,0]} ra={50} color={'white'}/>
+      <TorusTrack p={[100,0,0]} r={[Math.PI/2,0,0]} ra={50} color={'white'} />
+      
+      <TorusTrack p={[0,0,0]} r={[-Math.PI/2,0,0]} ra={52.5} color={'lightblue'} />
+      <TorusTrack p={[0,0,0]} r={[Math.PI/2,0,0]} ra={52.5} color={'lightblue'} />
+      <TorusTrack p={[100,0,0]} r={[-Math.PI/2,0,0]} ra={52.5} color={'lightblue'} />
+      <TorusTrack p={[100,0,0]} r={[Math.PI/2,0,0]} ra={52.5} color={'lightblue'} />
+      
+      <TorusTrack p={[0,0,0]} r={[-Math.PI/2,0,0]} ra={55} color={'lightblue'}/>
+      <TorusTrack p={[0,0,0]} r={[Math.PI/2,0,0]} ra={55} color={'lightblue'} />
+      <TorusTrack p={[100,0,0]} r={[-Math.PI/2,0,0]} ra={55} color={'lightblue'}/>
+      <TorusTrack p={[100,0,0]} r={[Math.PI/2,0,0]} ra={55} color={'lightblue'} />
+      
+      <TorusTrack p={[0,0,0]} r={[-Math.PI/2,0,0]} ra={57.5} color={'lightblue'} />
+      <TorusTrack p={[0,0,0]} r={[Math.PI/2,0,0]} ra={57.5} color={'lightblue'} />
+      <TorusTrack p={[100,0,0]} r={[-Math.PI/2,0,0]} ra={57.5} color={'lightblue'} />
+      <TorusTrack p={[100,0,0]} r={[Math.PI/2,0,0]} ra={57.5} color={'lightblue'} />
+      
+      <TorusTrack p={[0,0,0]} r={[-Math.PI/2,0,0]} ra={60} color={'black'}/>
+      <TorusTrack p={[0,0,0]} r={[Math.PI/2,0,0]} ra={60} color={'black'} />
+      <TorusTrack p={[100,0,0]} r={[-Math.PI/2,0,0]} ra={60} color={'black'} />
+      <TorusTrack p={[100,0,0]} r={[Math.PI/2,0,0]} ra={60} color={'black'} />
+  </group>
+}

@@ -90,21 +90,21 @@ const getCurrentWallNumber = (currentIndex) => {
 
 const getWallScale = (currentIndex, currentWallNumber ) => {
   const d = getDistanceBetween(currentIndex, currentWallNumber)
-  if( d > 0){ return 1- d/30  }
+  if( d > 0){ return 1- d/(30*100000000000000000000)  }
   else{ return 1 }
 }
 
 const getDistanceBetween = (currentIndex, currentWallNumber ) => {
   if(currentIndex >= 0){
-    const d = ( currentWallNumber)*33 - currentIndex
-    return d 
+    const d = ( currentWallNumber)*33 - currentIndex 
+    return d*100000000000000000000
   }else{
     if(currentWallNumber === 0){
-      const d = -currentIndex
-      return d
+      const d = -currentIndex 
+      return d*100000000000000000000
     }else{
-      const d = -( 8 - currentWallNumber )*33 - currentIndex
-      return d
+      const d = -( 8 - currentWallNumber )*33 - currentIndex 
+      return d*100000000000000000000
     }
   }
 }
