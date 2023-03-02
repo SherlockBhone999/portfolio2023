@@ -5,7 +5,7 @@ import {Context} from './Portfolio'
 import { data } from './data'
 const { pointsFromItoP, pointsFromPtoI, pointsFromItoO, pointsFromOtoI, pointsFromPtoO, pointsFromOtoP , pitchesForSlope, pitchesForAxisParallel } = data
 
-import { Airplane2 } from '../assets/plane/Plane'
+
 import { PlaneRed } from '../assets/airplane_white_and_red/Plane_red'
 
 /////////////
@@ -187,11 +187,6 @@ const Box = ( ) => {
       <boxBufferGeometry args={[0.1,0.1,0.1]} />
       <meshLambertMaterial color="red" />
     </mesh>
-{/*
-    <mesh position={[0,2,0]} rotation={[0,-Math.PI/2, 0]}>
-      <Airplane2 />
-    </mesh>
-*/}
 
    <mesh position={[0,2,0]} rotation={[0, -Math.PI/2, 0]} scale={2}>
       <PlaneRed />

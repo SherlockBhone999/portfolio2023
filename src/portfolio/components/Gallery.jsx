@@ -8,10 +8,9 @@ import {Context} from '../Portfolio'
 import {data } from '../data'
 const { p1, p2, p3, p4 } = data
 
-import { FrameBlock } from '../../assets/3d_square_frame/Square_frame'
-import { StatueStand } from '../../assets/statue_stand/Statue_stand'
+
 import { SquidSquare } from '../../assets/squid_game_sugar_honeycomb_square_cookie/Square'
-import { PhotoFrame1 } from '../../assets/3d_architecture__photo_frame/Photo_frame'
+import { QuestionBlock } from '../../assets/mario_block/Mario_block'
 
 //////////////////////////////////////////////////////////////
 
@@ -77,11 +76,11 @@ const Circle =({img}) =>{
     <Picture item={p2} img={img}/>
     <Picture  item={p3} img={img}/>
     <Picture  item={p4} img={img}/>
-    {/*
-    <mesh scale={0.3} position={[15,-15,-5]}>
-      <FrameBlock />
+    
+    <mesh scale={1} position={[0,20,0]}>
+      <QuestionBlock />
     </mesh>
-    */}
+    
     <mesh >
       <boxGeometry args={[19,25,19]} />
       <meshLambertMaterial color='gray' />
@@ -141,14 +140,6 @@ export default function Gallery(){
   <Circle img={currentImg} />
   <Wall img={currentImg} />
   <Button currentImg={currentImg} setCurrentImg={setCurrentImg} array={array} />
-  {/*
-  <mesh position={[0, -64, 0]} scale={60} rotation={[0,Math.PI/6, 0]}>
-    <StatueStand />
-    <mesh position={[0,0.6,0]} scale={1.5}>
-      <SquidSquare />
-    </mesh>
-  </mesh>
-*/}
   
   <mesh position={[0,-28, 0]}>
     <boxGeometry args={[100,2,80]} />

@@ -2,8 +2,7 @@
 import Disk from './Disk'
 import { useState, useContext , useEffect } from 'react'
 import { Context } from '../Portfolio'
-import { PhotoFrame1 } from '../../assets/3d_architecture__photo_frame/Photo_frame'
-import { SquareFiretable } from '../../assets/square_firetable/Square_firetable'
+
 
 
 const DiskContainer = ({p}) => {

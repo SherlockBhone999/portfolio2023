@@ -47,11 +47,8 @@ function RunningTrack (){
   
   <Car p={carp} camerap={camerap}/>
 
-  <Track p={[0,0,0]} r={38} currentIndex={currentIndex} color={'black'}/>
-  
-  
-  
-  <Track p={[0,0,0]} r={62} currentIndex={currentIndex} color={'black'}/>
+  <Track p={[0,0,0]} r={38} currentIndex={currentIndex} color={'hotpink'}/>
+  <Track p={[0,0,0]} r={62} currentIndex={currentIndex} color={'hotpink'}/>
   
   {wallData.map((item)=>{
     return <Wall p={item.p} r={ item.r } s={item.s } img={item.img} />
@@ -61,10 +58,6 @@ function RunningTrack (){
     <Road />
   </mesh>
  
- <mesh position={[50,-7,0]}>
-  <boxGeometry args={[280,2,170]} />
-  <meshStandardMaterial color='lightpink'/>
- </mesh>
  
   </group>
 }

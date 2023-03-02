@@ -40,6 +40,8 @@ const getAllCoordinates = (r) => {
   const array3 = getCoordinatesArray(getCoordinates3,r)
   const array4 = getCoordinatesArray(getCoordinates4,r)
   const bigArray = array1.concat( array2, array3, array4 )
+  
+  
   return bigArray
 }
 
@@ -65,32 +67,34 @@ const getFilteredDotArray = (p, r, currentIndex) => {
     
   const array = []
   if(currentIndex === 0 ){
-    for( let i=0; i<= 20; i++){
+    for( let i=0; i<= 5; i++){
       array[i] = reversedAllDotPoints[i]
     }
-    for(let i = 0; i<= 20; i++){
-      array[i+21] = dotAllPoints[i]
+    for(let i = 0; i<= 3; i++){
+      array[i+3] = dotAllPoints[i]
     }
   }else if(currentIndex > 0){
     for( let i=0; i<= dotAllPoints.length ; i++){
-      if( i >= currentIndex - 20 && i<= currentIndex + 25){
+      if( i >= currentIndex - 5 && i<= currentIndex + 3){
         array[i] = dotAllPoints[i]
       }
     }
   }else{
     for( let i=0; i<= reversedAllDotPoints.length ; i++){
-      if( i >= Math.abs(currentIndex) - 30 && i <= Math.abs(currentIndex) + 20 ){
+      if( i >= Math.abs(currentIndex) - 5 && i <= Math.abs(currentIndex) + 3 ){
         array[i] = reversedAllDotPoints[i]
       }
     }
   }
+  
+  
   return array
 }
 
 
 const Dot = ({p, color}) => {
   return <mesh position={p} >
-    <boxGeometry args={[0.2,1,0.2]} />
+    <cylinderGeometry args={[4,4,2]} />
     <meshLambertMaterial color={color} />
   </mesh>
 }
@@ -108,5 +112,6 @@ export const Track = ({p,r, currentIndex, color }) =>{
     {dotPoints.map(point =>{
       return <Dot p={point} color={color} />
     })}
+    
   </group>
 }

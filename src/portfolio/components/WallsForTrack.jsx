@@ -88,23 +88,25 @@ const getCurrentWallNumber = (currentIndex) => {
 
 }
 
+//for wall getting bigger
 const getWallScale = (currentIndex, currentWallNumber ) => {
   const d = getDistanceBetween(currentIndex, currentWallNumber)
-  if( d > 0){ return 1- d/(30*100000000000000000000)  }
+  if( d > 0){ return 1- d/(30)  }
   else{ return 1 }
 }
 
+//for wall getting bigger
 const getDistanceBetween = (currentIndex, currentWallNumber ) => {
   if(currentIndex >= 0){
     const d = ( currentWallNumber)*33 - currentIndex 
-    return d*100000000000000000000
+    return d
   }else{
     if(currentWallNumber === 0){
       const d = -currentIndex 
-      return d*100000000000000000000
+      return d
     }else{
       const d = -( 8 - currentWallNumber )*33 - currentIndex 
-      return d*100000000000000000000
+      return d
     }
   }
 }
@@ -114,13 +116,10 @@ export const Wall = ({p, r, s, img }) => {
   const imgg = useLoader(TextureLoader,img)
   
   return <group ref={ref} position={p} rotation={r} scale={s} >
-  <mesh >
-    <boxGeometry args={[20,20,2]} />
-    <meshLambertMaterial color='black' />
-      <mesh position={[0,0,0]} >
-        <boxGeometry args={[19,19,2.5]} />
-        <meshStandardMaterial map={imgg} />
-      </mesh>
+  <mesh position={[0,0,0]} >
+    <boxGeometry args={[19,19,2.5]} />
+    <meshStandardMaterial map={imgg} />
+    
   </mesh >
   
   </group>

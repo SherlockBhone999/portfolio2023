@@ -55,7 +55,8 @@ const ForOrbit = () =>{
     <button onClick={()=>setChosenCamera('airplane')}> drive airplane </button >
     <button onClick={()=>setChosenCamera('car')}> drive car </button >
     <button onClick={()=>setChosenCamera('gallery')}> view gallery </button >
-    <button onClick={()=>setBg('bg-black')} > change bg </button>
+    <button onClick={()=>setBg('bg-white')} > change bg </button>
+    
   </div>
 }
 
