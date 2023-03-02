@@ -26,7 +26,7 @@ export default function PyramidCentre(){
       </mesh>
     
       <spotLight position={[0,5,0]} intensity={10} color='yellow' />
-      }
+      
     </mesh>
     )
 }
