@@ -59,7 +59,7 @@ export default function Portfolio() {
   const [airplanePosition, setAirplanePosition ] = useState('intro')
   const [currentProject, setCurrentProject ] = useState(p1)
   const [moveCar , setMoveCar] = useState('')
-  const [bg, setBg] = useState('bg-black')
+  const [bg, setBg] = useState('bg-gray-600')
 
   
   return <Context.Provider value={{

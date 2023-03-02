@@ -1,0 +1,11 @@
+Model Information:
+* title:	Light-bulb
+* source:	https://sketchfab.com/3d-models/light-bulb-1bf43ed7628e48e7bceae6f6c5ac06d9
+* author:	ffffoooo (https://sketchfab.com/ffffoooo)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Light-bulb" (https://sketchfab.com/3d-models/light-bulb-1bf43ed7628e48e7bceae6f6c5ac06d9) by ffffoooo (https://sketchfab.com/ffffoooo) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

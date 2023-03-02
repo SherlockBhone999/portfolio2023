@@ -21,7 +21,7 @@ function RunningTrack (){
   const { moveCar, setMoveCar } = useContext(Context)
   
   useEffect(()=>{
-    updateWallData( wallData, setWallData , currentIndex )
+    //updateWallData( wallData, setWallData , currentIndex )
     
     if(currentIndex === -264 || currentIndex === 264 ){ 
           setCurrentIndex(0) 
@@ -78,10 +78,10 @@ const TorusTrack = ({p,r,ra, color }) => {
 const Road = () => {
   
   return <group >
-      <TorusTrack p={[0,0,0]} r={[-Math.PI/2,0,0]} ra={40} color={'black'} />
-      <TorusTrack p={[0,0,0]} r={[Math.PI/2,0,0]} ra={40} color={'black'} />
-      <TorusTrack p={[100,0,0]} r={[-Math.PI/2,0,0]} ra={40} color={'black'} />
-      <TorusTrack p={[100,0,0]} r={[Math.PI/2,0,0]} ra={40} color={'black'} />
+      <TorusTrack p={[0,0,0]} r={[-Math.PI/2,0,0]} ra={40} color={'gray'} />
+      <TorusTrack p={[0,0,0]} r={[Math.PI/2,0,0]} ra={40} color={'gray'} />
+      <TorusTrack p={[100,0,0]} r={[-Math.PI/2,0,0]} ra={40} color={'gray'} />
+      <TorusTrack p={[100,0,0]} r={[Math.PI/2,0,0]} ra={40} color={'gray'} />
       
       <TorusTrack p={[0,0,0]} r={[-Math.PI/2,0,0]} ra={42.5} color={'lightblue'}/>
       <TorusTrack p={[0,0,0]} r={[Math.PI/2,0,0]} ra={42.5} color={'lightblue'} />
@@ -118,9 +118,22 @@ const Road = () => {
       <TorusTrack p={[100,0,0]} r={[-Math.PI/2,0,0]} ra={57.5} color={'lightblue'} />
       <TorusTrack p={[100,0,0]} r={[Math.PI/2,0,0]} ra={57.5} color={'lightblue'} />
       
-      <TorusTrack p={[0,0,0]} r={[-Math.PI/2,0,0]} ra={60} color={'black'}/>
-      <TorusTrack p={[0,0,0]} r={[Math.PI/2,0,0]} ra={60} color={'black'} />
-      <TorusTrack p={[100,0,0]} r={[-Math.PI/2,0,0]} ra={60} color={'black'} />
-      <TorusTrack p={[100,0,0]} r={[Math.PI/2,0,0]} ra={60} color={'black'} />
+      <TorusTrack p={[0,0,0]} r={[-Math.PI/2,0,0]} ra={60} color={'gray'}/>
+      <TorusTrack p={[0,0,0]} r={[Math.PI/2,0,0]} ra={60} color={'gray'} />
+      <TorusTrack p={[100,0,0]} r={[-Math.PI/2,0,0]} ra={60} color={'gray'} />
+      <TorusTrack p={[100,0,0]} r={[Math.PI/2,0,0]} ra={60} color={'gray'} />
+      
+      {/*
+        for light track
+      */}
+      <TorusTrack p={[0,0,0]} r={[-Math.PI/2,0,0]} ra={64} color={'lightpink'}/>
+      <TorusTrack p={[0,0,0]} r={[Math.PI/2,0,0]} ra={64} color={'lightpink'} />
+      <TorusTrack p={[100,0,0]} r={[-Math.PI/2,0,0]} ra={64} color={'lightpink'} />
+      <TorusTrack p={[100,0,0]} r={[Math.PI/2,0,0]} ra={64} color={'lightpink'} />
+      
+      <TorusTrack p={[0,0,0]} r={[-Math.PI/2,0,0]} ra={36} color={'lightpink'}/>
+      <TorusTrack p={[0,0,0]} r={[Math.PI/2,0,0]} ra={36} color={'lightpink'} />
+      <TorusTrack p={[100,0,0]} r={[-Math.PI/2,0,0]} ra={36} color={'lightpink'} />
+      <TorusTrack p={[100,0,0]} r={[Math.PI/2,0,0]} ra={36} color={'lightpink'} />
   </group>
 }

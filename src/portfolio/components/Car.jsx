@@ -38,7 +38,7 @@ export const moveforward = (setCarp, setCamerap , currentIndex, setCurrentIndex,
         }
         setCurrentIndex( currentIndex + i)
         
-      }, i*40) //20
+      }, i*100) //20
     }
   }
   
@@ -57,7 +57,7 @@ export const movebackward = (setCarp, setCamerap , currentIndex, setCurrentIndex
         }
         setCurrentIndex( currentIndex - i )
         
-      }, i*40)
+      }, i*100)
     }
   }
   
@@ -78,7 +78,7 @@ export const Car = ({p, camerap}) => {
     if(chosenCamera === 'car'){
       //adapt to track position
       vec2.set(camerap[0] +100, camerap[1]+10, camerap[2] )
-      camera.position.lerp(vec2, .1 )
+      camera.position.lerp(vec2, 0.2 )
       
       const x = ref.current.position.x +100
       const y = ref.current.position.y + 10

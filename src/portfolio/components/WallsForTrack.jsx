@@ -10,58 +10,76 @@ import img6 from '../images/169.jpg'
 import img7 from '../images/fullh.jpg'
 import img8 from '../images/fullv.jpg'
 
+import { Billboard } from '../../assets/billboard/Billboard'
 export const myWallData = [
   {
-    p : [-60, 10, -10 ],
-    r : [0, 0  , 0],
-    s : 0,
+    p : [-60 + 1, 0, -10 ],
+    r : [0, -Math.PI/2  , 0],
+    s : 1,
     img: img1
   },
   {
-    p : [10, 10, -60 ],
-    r : [0, Math.PI/2  , 0],
-    s : 0,
+    p : [10 , 0, -60 +1],
+    r : [0,   Math.PI  , 0],
+    s : 1,
     img: img2
   },
   {
-    p : [40, 10, 10],
-    r : [ 0, 0, 0],
-    s : 0,
+    p : [40 - 1, 0, 10],
+    r : [ 0, Math.PI/2 , 0],
+    s : 1,
     img: img3
   },
   {
-    p : [ 110, 10, 60 ],
-    r : [0, Math.PI/2  , 0],
-    s : 0,
+    p : [ 110 , 0, 60 - 1 ],
+    r : [0, Math.PI , 0],
+    s : 1,
     img: img4
   },
   {
-    p : [160, 10, -10 ],
-    r : [0, 0  , 0],
-    s : 0,
+    p : [160 - 1, 0, -10 ],
+    r : [0, -Math.PI/2  , 0],
+    s : 1,
     img: img5
   },
   {
-    p : [90, 10, -60 ],
-    r : [0, Math.PI/2 , 0],
-    s : 0,
+    p : [90, 0, -60+1 ],
+    r : [0,0 , 0],
+    s : 1,
     img: img6
   },
 
   {
-    p: [ 60, 10, 10],
-    r : [ 0, 0, 0],
-    s : 0,
+    p: [ 60 - 1, 0, 10],
+    r : [ 0, Math.PI/2 , 0],
+    s : 1,
     img: img7
   },
   {
-    p : [-10, 10, 60 ],
-    r : [0, Math.PI/2  , 0],
-    s : 0,
+    p : [-10, 0, 60 - 1 ],
+    r : [0, 0  , 0],
+    s : 1,
     img: img8
   }
   ]
 
+export const Wall = ({p, r, s, img }) => {
+  const ref = useRef()
+  const imgg = useLoader(TextureLoader,img)
+  
+  return <group ref={ref} position={p} scale={s} >
+  <mesh rotation={[ r[0], r[1]+Math.PI/2 , r[2] ]} >
+    <boxGeometry args={[10,10,0]} />
+    <meshStandardMaterial map={imgg} />
+    
+  </mesh >
+  <mesh rotation={r} scale={1.4} position={[0,-5,0]}> 
+    <Billboard /> 
+  </mesh>
+  </group>
+}
+
+/*
 export const updateWallData = (wallData, setWallData, currentIndex ) => {
   const arrayOfObjects = [...wallData]
   arrayOfObjects.map(obj => obj.s = 0 )
@@ -110,18 +128,4 @@ const getDistanceBetween = (currentIndex, currentWallNumber ) => {
     }
   }
 }
-
-export const Wall = ({p, r, s, img }) => {
-  const ref = useRef()
-  const imgg = useLoader(TextureLoader,img)
-  
-  return <group ref={ref} position={p} rotation={r} scale={s} >
-  <mesh position={[0,0,0]} >
-    <boxGeometry args={[19,19,2.5]} />
-    <meshStandardMaterial map={imgg} />
-    
-  </mesh >
-  
-  </group>
-}
-
+*/
