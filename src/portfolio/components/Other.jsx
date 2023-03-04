@@ -16,9 +16,9 @@ const DiskContainer = ({p}) => {
       setTimeout(()=>{ setListening(false) }, 1000 )
     }
   })
-  return <mesh position={p}>
+  return <group position={p}>
     <Disk listening={listening} />
-  </mesh>
+  </group>
 }
 
 export default function Other({p}){

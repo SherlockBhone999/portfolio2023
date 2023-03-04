@@ -1,0 +1,266 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 3514,
+      "max": [
+        1.6489540338516235,
+        0.9381250143051147,
+        1.0
+      ],
+      "min": [
+        -1.6489540338516235,
+        -0.9378219842910767,
+        -0.30164599418640137
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 42168,
+      "componentType": 5126,
+      "count": 3514,
+      "max": [
+        0.9998875856399536,
+        0.9999983310699463,
+        1.0
+      ],
+      "min": [
+        -0.9998875856399536,
+        -0.9999380111694336,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 3514,
+      "max": [
+        0.9685360193252563,
+        0.9940450191497803
+      ],
+      "min": [
+        0.004304999951273203,
+        0.0035230000503361225
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 17472,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 84336,
+      "componentType": 5126,
+      "count": 1000,
+      "max": [
+        1.6219840049743652,
+        0.9353240132331848,
+        0.9614940285682678
+      ],
+      "min": [
+        -1.6219840049743652,
+        -0.9352430105209351,
+        -0.30164599418640137
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 96336,
+      "componentType": 5126,
+      "count": 1000,
+      "max": [
+        0.27449002861976624,
+        1.0,
+        0.22790220379829407
+      ],
+      "min": [
+        -0.27449002861976624,
+        -1.0,
+        -0.9999978542327881
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 28112,
+      "componentType": 5126,
+      "count": 1000,
+      "max": [
+        0.9625359773635864,
+        0.9864109754562378
+      ],
+      "min": [
+        0.6538360118865967,
+        0.015178999863564968
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 69888,
+      "componentType": 5125,
+      "count": 4800,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "Uriel Bromberg (https://sketchfab.com/UrielBromberg)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/desk-props-deluxe-room-table-personal-09bf5678a77044e4a4847c9a8a2a2f6d",
+      "title": "Desk: Props Deluxe (Room Table Personal)"
+    },
+    "generator": "Sketchfab-12.68.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 89088,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 36112,
+      "byteOffset": 89088,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 108336,
+      "byteOffset": 125200,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 233536,
+      "uri": "scene.bin"
+    }
+  ],
+  "materials": [
+    {
+      "alphaMode": "BLEND",
+      "doubleSided": true,
+      "name": "table01",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.002200327,
+          0.0993217185,
+          0.3002697829,
+          0.3553734756
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.6
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "table02",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.2620854943,
+          0.0559628852,
+          0.7579697625,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.6
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Object_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Object_1",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 5,
+            "POSITION": 4,
+            "TEXCOORD_0": 6
+          },
+          "indices": 7,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2,
+        3
+      ],
+      "name": "c372edafe8a2449fa842c487ba41a329.obj.cleaner.materialmerger.gles"
+    },
+    {
+      "mesh": 0,
+      "name": "Object_2"
+    },
+    {
+      "mesh": 1,
+      "name": "Object_3"
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ]
+}

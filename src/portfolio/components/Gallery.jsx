@@ -11,7 +11,9 @@ const { p1, p2, p3, p4 } = data
 
 import { SquidSquare } from '../../assets/squid_game_sugar_honeycomb_square_cookie/Square'
 import { QuestionBlock } from '../../assets/mario_block/Mario_block'
-
+import { EmptyRoom } from '../../assets/empty_room/Empty_room'
+import { Desk } from '../../assets/desk/Desk'
+import { Tv2 } from '../../assets/tv2/Tv2'
 //////////////////////////////////////////////////////////////
 
 const PicObject = ({chosen}) => {
@@ -78,7 +80,7 @@ const Circle =({img}) =>{
   
   useEffect(()=>{
     const difference = getDifference()
-    setTimeout(()=>{setProjectBlockListening(false)}, difference*730)
+    setTimeout(()=>{setProjectBlockListening(false)}, difference*600)
   }, [currentProject])
   
   useEffect(()=>{
@@ -106,23 +108,35 @@ const Circle =({img}) =>{
   </mesh>
 }
 
-const Wall = ({img}) => {
+const TV = ({img}) => {
   const ref = useRef()
   const vec =new THREE.Vector3()
   const {chosenCamera } = useContext(Context)
   
   useFrame(( {camera})=>{
     if(chosenCamera === 'gallery' ){
-      vec.set( -50-25-13+6+5, 10, -86-43-22 +11+7)
+      //vec.set( -50-25-13+6+5, 10, -86-43-22 +11+7)
+      vec.set( -77, 10, -133)
       camera.position.lerp( vec, .1 )
       camera.lookAt( 0,0,0 )
     }
   })
   
-  return (<mesh ref={ref} position={[20,0,0]}>
-    <boxGeometry args={[30,30,1]} />
+  return (<group ref={ref} position={[20,0,-10]}>
+  <mesh position={[0,-4,2]}>
+    <boxGeometry args={[40,20,0]} />
     <meshLambertMaterial map={img}/>
-  </mesh>)
+  </mesh>
+  
+  <mesh scale={10} position={[0,-26,0]}>
+    <Desk />
+  </mesh>
+  
+  <mesh scale={3} position={[0,-17,0]}>
+    <Tv2 />
+  </mesh>
+  
+  </group>)
 }
 
 const Button = ({ currentImg, setCurrentImg, array}) => {
@@ -152,17 +166,21 @@ export default function Gallery(){
   },[currentProject])
   
   const array = [img1, img2]
-  return <mesh >
-  <Circle img={currentImg} />
-  <Wall img={currentImg} />
-  <Button currentImg={currentImg} setCurrentImg={setCurrentImg} array={array} />
+  return <group>
   
-  <mesh position={[0,-28, 0]}>
-    <boxGeometry args={[100,2,80]} />
-    <meshLambertMaterial color='white' />
+  <mesh position={[0,0,0]} rotation={[0, 0, 0]}>
+  <Circle img={currentImg} />
+  <TV img={currentImg} />
+  <Button currentImg={currentImg} setCurrentImg={setCurrentImg} array={array} />
+  </mesh >
+  
+  <mesh position={[25-13+6 -22,-30, 43+21-10 ]} scale={35} rotation={[0, 0, 0]}>
+    <EmptyRoom />
   </mesh>
 
+  
 
-  </mesh >
+  </group>
 }
 
+//ROOM r -math.pi/3

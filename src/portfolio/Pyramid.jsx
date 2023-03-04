@@ -13,8 +13,7 @@ const Container = () => {
     <Intro p={[100,0,0]} />
     <Projects p={[-50, 0,-86.60254]} />
     <Other p={[-50, 0, 86.60254]} />
-    
-    
+  
   </mesh>
 }
 

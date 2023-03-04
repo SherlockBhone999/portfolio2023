@@ -2,13 +2,19 @@ import { useFrame, useLoader } from '@react-three/fiber'
 import { useState,useEffect, useRef,useContext } from 'react'
 import {Context} from '../Portfolio'
 import { CircleRug} from '../../assets/low-poly_circle_rug/Circle_rug'
+import { HelipadCircle } from '../../assets/helipad_circle/Helipad_circle'
 
 const DiskObj = () => {
   
   return (
+    <group >
     <mesh >
       <CircleRug />
     </mesh>
+    <mesh position={[0,0.4,0]} rotation={[0, Math.PI/2, 0]}> 
+      <HelipadCircle />
+    </mesh>
+    </group>
     )
 }
 
