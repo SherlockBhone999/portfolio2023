@@ -60,6 +60,7 @@ export default function Portfolio() {
   const [currentProject, setCurrentProject ] = useState(p1)
   const [moveCar , setMoveCar] = useState('')
   const [bg, setBg] = useState('bg-gray-600')
+  const [projectBlockListening, setProjectBlockListening ] = useState(true)
 
   
   return <Context.Provider value={{
@@ -77,7 +78,9 @@ export default function Portfolio() {
   moveCar,
   setMoveCar,
   bg,
-  setBg
+  setBg,
+  projectBlockListening,
+  setProjectBlockListening,
   
   
   }}>

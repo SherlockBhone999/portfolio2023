@@ -62,21 +62,26 @@ const ForOrbit = () =>{
 
 
 const ForGallery = () => {
-  const { setChosenCamera , setCurrentProject, setProjectForWall } = useContext(Context)
+  const { setChosenCamera , setCurrentProject, setProjectForWall, setProjectBlockListening } = useContext(Context)
   return <div class='grid'>
     <button onClick={()=>setChosenCamera('orbit')}> orbit view </button >
     <button onClick={()=>{
+      setProjectBlockListening(true)
       setCurrentProject(p1)
     }}> p1 </button >
     <button onClick={()=>{
+      setProjectBlockListening(true)
       setCurrentProject(p2)
     }}> p2 </button >
     <button onClick={()=>{
+      setProjectBlockListening(true)
       setCurrentProject(p3)
     }}> p3 </button >
     <button onClick={()=>{
+      setProjectBlockListening(true)
       setCurrentProject(p4)
     }}> p4 </button >
+    
   </div>
 }
 

@@ -16,60 +16,68 @@ export const myWallData = [
     p : [-60 + 1, 0, -10 ],
     r : [0, -Math.PI/2  , 0],
     s : 1,
-    img: img1
+    img: img1,
+    imgp : [ 0, 14.7, -0.5 ]
   },
   {
     p : [10 , 0, -60 +1],
     r : [0,   Math.PI  , 0],
     s : 1,
-    img: img2
+    img: img2,
+    imgp : [0.5 , 14.7 , 0]
   },
   {
     p : [40 - 1, 0, 10],
     r : [ 0, Math.PI/2 , 0],
     s : 1,
-    img: img3
+    img: img3,
+    imgp : [0, 14.7, 0.4]
   },
   {
     p : [ 110 , 0, 60 - 1 ],
     r : [0, Math.PI , 0],
     s : 1,
-    img: img4
+    img: img4,
+    imgp : [ 0.5, 14.7, 0]
   },
   {
     p : [160 - 1, 0, -10 ],
     r : [0, -Math.PI/2  , 0],
     s : 1,
-    img: img5
+    img: img5,
+    imgp : [ 0 , 14.7, -0.5 ]
   },
   {
     p : [90, 0, -60+1 ],
     r : [0,0 , 0],
     s : 1,
-    img: img6
+    img: img6,
+    imgp : [ -0.5 , 14.7, 0 ]
   },
 
   {
     p: [ 60 - 1, 0, 10],
     r : [ 0, Math.PI/2 , 0],
     s : 1,
-    img: img7
+    img: img7,
+    imgp : [ 0 , 14.7, 0.5 ]
   },
   {
     p : [-10, 0, 60 - 1 ],
     r : [0, 0  , 0],
     s : 1,
-    img: img8
+    img: img8,
+    imgp : [ -0.5,  14.7 , 0 ]
   }
   ]
 
-export const Wall = ({p, r, s, img }) => {
+export const Wall = ({p, r, s, img, imgp }) => {
   const ref = useRef()
   const imgg = useLoader(TextureLoader,img)
   
   return <group ref={ref} position={p} scale={s} >
-  <mesh rotation={[ r[0], r[1]+Math.PI/2 , r[2] ]} >
-    <boxGeometry args={[10,10,0]} />
+  <mesh rotation={[ r[0], r[1]+Math.PI/2 , r[2] ]} position={imgp}>
+    <boxGeometry args={[25,13.7,0]} />
     <meshStandardMaterial map={imgg} />
     
   </mesh >

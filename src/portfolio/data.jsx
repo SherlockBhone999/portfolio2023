@@ -14,6 +14,7 @@ const p1 = {
   rotation : [0, 0, 0],
   scale : 1,
   circleRotation : [0, 3/4 * Math.PI, 0 ],
+  id: 1,
 }
 
 const p2 = {
@@ -22,6 +23,7 @@ const p2 = {
   rotation : [ 0, Math.PI/2 , 0],
   scale : 1,
   circleRotation : [0, 1/4 * Math.PI, 0 ],
+  id : 2,
 }
 
 const p3 = {
@@ -30,6 +32,7 @@ const p3 = {
 rotation : [0, 0, 0],
   scale : 1,
   circleRotation : [0, -1/4 * Math.PI, 0 ],
+  id:3,
 }
 
 const p4 = {
@@ -38,6 +41,7 @@ const p4 = {
   rotation : [0 , Math.PI/2, 0],
   scale : 1,
   circleRotation : [0, -3/4 * Math.PI, 0 ],
+  id:4,
 }
 //!!/////////////////!!!!!!!!!!!!!!!!!!!!!///////////////
 //////////////////////////////////////////////////////////

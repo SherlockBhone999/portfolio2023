@@ -3,7 +3,7 @@ import { useFrame, useThree } from "@react-three/fiber"
 import * as THREE from 'three'
 import {useContext} from 'react'
 import {Context} from '../Portfolio'
-import { Wall, updateWallData, myWallData } from './WallsForTrack'
+import { Wall, myWallData } from './WallsForTrack'
 import { Car, moveforward, movebackward, getCameraPositionsArray } from './Car'
 import { Track, getBigArray } from './Track'
 
@@ -21,7 +21,7 @@ function RunningTrack (){
   const { moveCar, setMoveCar } = useContext(Context)
   
   useEffect(()=>{
-    //updateWallData( wallData, setWallData , currentIndex )
+    
     
     if(currentIndex === -264 || currentIndex === 264 ){ 
           setCurrentIndex(0) 
@@ -51,7 +51,7 @@ function RunningTrack (){
   <Track p={[0,0,0]} r={62} currentIndex={currentIndex} color={'hotpink'}/>
   
   {wallData.map((item)=>{
-    return <Wall p={item.p} r={ item.r } s={item.s } img={item.img} />
+    return <Wall p={item.p} r={ item.r } s={item.s } img={item.img} imgp={item.imgp}/>
   })}
   
   <mesh position={[0,-5,0]}> 

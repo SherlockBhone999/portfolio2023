@@ -18,7 +18,7 @@ const PicObject = ({chosen}) => {
   
   return (
     <mesh >
-      <boxGeometry args={[0,20,15]} />
+      <boxGeometry args={[0,15,15]} />
       <meshStandardMaterial map={chosen} />
     </mesh>
     )
@@ -51,23 +51,43 @@ const Picture = ({item, img}) => {
 const Circle =({img}) =>{
   const ref = useRef()
   const [r, setR] = useState(0)
-  const { currentProject } = useContext(Context)
+  const { currentProject, projectBlockListening, setProjectBlockListening } = useContext(Context)
+  const prevProjectRef = useRef({id:0})
   
   const rotate = (rr) => {
     const target = currentProject.circleRotation[1]
     if(rr.y < target){
-      rr.y = r + 0.01
+      rr.y = r + 0.04
       setR(rr.y)
     }else if(rr.y > target){
-      rr.y = r - 0.01
+      rr.y = r - 0.04
       setR(rr.y)
     }
+  }
+  
+  const getDifference = () => {
+    const d = currentProject.id - prevProjectRef.current.id 
+    const dd = Math.abs(d)
+    return dd
   }
 
   useFrame(()=>{
     const rr = ref.current.rotation
-    rotate(rr)
+    if(projectBlockListening){ rotate(rr) }
   })
+  
+  useEffect(()=>{
+    const difference = getDifference()
+    setTimeout(()=>{setProjectBlockListening(false)}, difference*730)
+  }, [currentProject])
+  
+  useEffect(()=>{
+    prevProjectRef.current = currentProject
+  },[currentProject])
+  
+  useEffect(()=>{
+    setTimeout(()=>{setProjectBlockListening(false)}, 3000)
+  },[])
   
   return <mesh ref={ref} position={[-20,0,0]} >
     <sphereGeometry args={[1]} />
@@ -77,14 +97,10 @@ const Circle =({img}) =>{
     <Picture  item={p3} img={img}/>
     <Picture  item={p4} img={img}/>
     
-    <mesh scale={1} position={[0,20,0]}>
+    <mesh scale={9.8} position={[0,0,0]}>
       <QuestionBlock />
     </mesh>
     
-    <mesh >
-      <boxGeometry args={[19,25,19]} />
-      <meshLambertMaterial color='gray' />
-    </mesh>
 
     
   </mesh>
@@ -98,7 +114,7 @@ const Wall = ({img}) => {
   useFrame(( {camera})=>{
     if(chosenCamera === 'gallery' ){
       vec.set( -50-25-13+6+5, 10, -86-43-22 +11+7)
-      camera.position.lerp( vec, .02 )
+      camera.position.lerp( vec, .1 )
       camera.lookAt( 0,0,0 )
     }
   })

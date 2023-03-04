@@ -77,11 +77,11 @@ export const Car = ({p, camerap}) => {
     
     if(chosenCamera === 'car'){
       //adapt to track position
-      vec2.set(camerap[0] +100, camerap[1]+10, camerap[2] )
+      vec2.set(camerap[0] +100, camerap[1]+6, camerap[2] )
       camera.position.lerp(vec2, 0.2 )
       
       const x = ref.current.position.x +100
-      const y = ref.current.position.y + 10
+      const y = ref.current.position.y + 6
       const z = ref.current.position.z 
       camera.lookAt(x,y,z)
       
