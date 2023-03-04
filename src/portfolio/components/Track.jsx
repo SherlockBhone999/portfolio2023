@@ -1,3 +1,4 @@
+
 import {GlowStick} from '../../assets/glowstick/Glowstick'
 import { Lightbulb } from '../../assets/lightbulb/Lightbulb'
 
@@ -25,6 +26,135 @@ const getCoordinates4 = (radian  , r) => {
     return [x, 0, z]
   }
 
+//inner
+const getInnerCoordinatesArray = (fun,r) => {
+  const u = Math.PI/16
+    const array = []
+    for(let i=0; i<= 17 ; i++){
+      const a = fun(u * i, r)
+      array.push(a)
+    }
+    return array
+}
+
+
+const getInnerArray = (r) => {
+  const arr1 = getInnerCoordinatesArray(getCoordinates1,r )
+  const array1 = []
+  for(let i=0; i<= arr1.length-1; i++ ){
+    array1[i] = arr1[i]
+  }
+  const arr2 = getInnerCoordinatesArray(getCoordinates2,r )
+  const array2 = []
+  for( let i=0; i<= arr2.length-1;i++){
+    array2[i] = arr2[i]
+  }
+  
+  const arr3 = getInnerCoordinatesArray(getCoordinates3,r )
+  const array3 = []
+  for (let i=0; i<= arr3.length-1; i++){
+    array3[i] = arr3[i]
+  }
+  
+  const arr4 = getInnerCoordinatesArray(getCoordinates4,r )
+  const array4 = []
+  for( let i=0; i<= arr4.length-1;i++){
+    array4[i] = arr4[i]
+  }
+  
+
+  const bigArray = array1.concat( array2, array3, array4 )
+  
+  return bigArray
+}
+
+const InnerTrack = () =>{
+  const trackPoints = getInnerArray(36)
+  return <mesh >
+
+    {trackPoints.map(point => <group>
+      <OnePiece p={point} />
+    </group>)}
+
+  </mesh>
+}
+//////////////////////
+
+//outer
+const getOuterCoordinatesArray = (fun,r) => {
+  const u = Math.PI/32
+    const array = []
+    for(let i=0; i<= 33 ; i++){
+      const a = fun(u * i, r)
+      array.push(a)
+    }
+    return array
+}
+
+
+const getOuterArray = (r) => {
+  const arr1 = getOuterCoordinatesArray(getCoordinates1,r)
+  const array1 = []
+  for(let i=0; i<= arr1.length-9; i++ ){
+    array1[i] = arr1[i]
+  }
+  const arr2 = getOuterCoordinatesArray(getCoordinates2,r)
+  const array2 = []
+  for( let i=0; i<= arr2.length-9;i++){
+    array2[i] = arr2[i+7]
+  }
+  
+  const arr3 = getOuterCoordinatesArray(getCoordinates3,r)
+  const array3 = []
+  for (let i=0; i<= arr3.length-9; i++){
+    array3[i] = arr3[i]
+  }
+  
+  const arr4 = getOuterCoordinatesArray(getCoordinates4,r)
+  const array4 = []
+  for( let i=0; i<= arr4.length-9;i++){
+    array4[i] = arr4[i+7]
+  }
+  const bigArray = array1.concat( array2, array3, array4 )
+  return bigArray
+}
+ 
+
+
+const OuterTrack = () =>{
+  const trackPoints = getOuterArray(64)
+  return <mesh >
+
+    {trackPoints.map(point => <group>
+      <OnePiece p={point} />
+    </group>)}
+
+  </mesh>
+}
+/////////////////!/!
+
+export const Track = ({currentIndex}) =>{
+  
+  return <group position={[0,-4,0]}>
+
+  <OuterTrack />
+  <InnerTrack />
+  <AllLight currentIndex={currentIndex}/>
+  </group>
+}
+
+///////////
+
+
+const OnePiece = ({p}) => {
+  
+  return <mesh>
+  <mesh position={p} scale={0.005} >
+    <GlowStick/>
+  </mesh>
+  </mesh>
+}
+
 const getCoordinatesArray = (fun,r) => {
   const u = Math.PI/64
     const array = []
@@ -42,7 +172,6 @@ const getAllCoordinates = (r) => {
   const array4 = getCoordinatesArray(getCoordinates4,r)
   const bigArray = array1.concat( array2, array3, array4 )
   
-  
   return bigArray
 }
 
@@ -57,196 +186,56 @@ export const getBigArray = (p,r) => {
   return array
 }
 
-
-const getLessCoordinatesArray = (fun,r, count) => {
-  const u = Math.PI/count
-    const array = []
-    for(let i=0; i<= count+1 ; i++){
-      const a = fun(u * i, r)
-      array.push(a)
-    }
-    return array
-}
-
-
-const getReducedBigArray = (r, count ) => {
-  const arr1 = getLessCoordinatesArray(getCoordinates1,r, count)
-  const array1 = []
-  for(let i=0; i<= arr1.length-9; i++ ){
-    array1[i] = arr1[i]
-  }
-  const arr2 = getLessCoordinatesArray(getCoordinates2,r, count)
-  const array2 = []
-  for( let i=0; i<= arr2.length-9;i++){
-    array2[i] = arr2[i+7]
-  }
+const LightForOnePiece = ({p}) =>{
+  const color = 'blue'
+  const objp = p
+  const lp1 = [ objp[0] + 1, objp[1]+3.2, objp[2] + 1 ]
+  const lp2 = [ objp[0]+0.3 , objp[1]+3.2, objp[2]- 1.2 ]
+  const lp3 = [ objp[0]-1.2, objp[1]+3.2, objp[2]+0.3]
   
-  const arr3 = getLessCoordinatesArray(getCoordinates3,r, count)
-  const array3 = []
-  for (let i=0; i<= arr3.length-9; i++){
-    array3[i] = arr3[i]
-  }
-  
-  const arr4 = getLessCoordinatesArray(getCoordinates4,r, count)
-  const array4 = []
-  for( let i=0; i<= arr4.length-9;i++){
-    array4[i] = arr4[i+7]
-  }
-  const bigArray = array1.concat( array2, array3, array4 )
-  return bigArray
-}
-
-//
- 
-const getBigArray2 = (r, count ) => {
-  const arr1 = getLessCoordinatesArray(getCoordinates1,r, count)
-  const array1 = []
-  for(let i=0; i<= arr1.length; i++ ){
-    array1[i] = arr1[i]
-  }
-  const arr2 = getLessCoordinatesArray(getCoordinates2,r, count)
-  const array2 = []
-  for( let i=0; i<= arr2.length;i++){
-    array2[i] = arr2[i]
-  }
-  
-  const arr3 = getLessCoordinatesArray(getCoordinates3,r, count)
-  const array3 = []
-  for (let i=0; i<= arr3.length; i++){
-    array3[i] = arr3[i]
-  }
-  
-  const arr4 = getLessCoordinatesArray(getCoordinates4,r, count)
-  const array4 = []
-  for( let i=0; i<= arr4.length;i++){
-    array4[i] = arr4[i]
-  }
-  const bigArray = array1.concat( array2, array3, array4 )
-  return bigArray
-}
- 
-
-const OnePiece = ({p}) => {
-  
-  return <mesh>
-  <mesh position={p} scale={0.005} >
-    <GlowStick/>
-  </mesh>
-  </mesh>
-}
-
-const OneTrack = ({ r, count }) =>{
-  const getTrackPoints = ( )=> {
-    if(r <= 40){
-      return getBigArray2( r, count )
-    }else{
-    return getReducedBigArray(r, count)
-    }
-  }
-  
-  const trackPoints = getTrackPoints()
-  return <mesh >
-
-    {trackPoints.map(point => <group>
-      <OnePiece p={point} />
-    </group>)}
-
-  </mesh>
-}
-
-const TwoPiece = ({p}) => {
-  
-  return <mesh>
-  <mesh position={p} scale={0.1} >
-    <Lightbulb />
-
-  </mesh>
-  </mesh>
-}
-
-const TwoTrack = ({color, r }) =>{
-  const trackPoints = getReducedBigArray(r)
-  return <mesh >
-
-    {trackPoints.map(point => <group>
-      <TwoPiece p={point} />
-    </group>)}
-
-  </mesh>
-}
-
-
-export const Track = () =>{
-  
-
-  
-  
-  return <group position={[0,-4,0]}>
-  
-  <OneTrack r={64} count={32}/>
-  <OneTrack r={36} count={16} />
-  
+  return <group>
+  <pointLight position={lp1} intensity={1000} color={color} distance={2.8} />
+  <pointLight position={lp2} intensity={1000} color={color} distance={2.8} />
+  <pointLight position={lp3} intensity={1000} color={color} distance={2.8} />
   </group>
 }
 
 
-
-
-/*
-export const Track = ({p,r, currentIndex, color }) =>{
+const AllLight = ({currentIndex}) => {
+  const allIndexPoints = getAllCoordinates(50)
+  const outerTrackPoints = getOuterArray(64)
+  const innerTrackPoints = getInnerArray(36)
+  const nForInner =Math.floor( ( currentIndex/allIndexPoints.length ) * innerTrackPoints.length )
   
-  const dotPoints = getFilteredDotArray(p, r, currentIndex )
-
+  const nForOuter =Math.floor( ( currentIndex/allIndexPoints.length ) * outerTrackPoints.length )
   
-  
-  return <group position={p}>
-    {dotPoints.map(point =>{
-      return <Dot p={point} color={color} />
-    })}
-    
-  </group>
-}
-
-
-const getFilteredDotArray = (p, r, currentIndex) => {
-  const dotAllPoints = getBigArray(p,r)
-  const reversedAllDotPoints = []
-  
-  for( let i=0; i<= dotAllPoints.length; i++){
-    reversedAllDotPoints[i] = dotAllPoints[ dotAllPoints.length - i]
-  }
-    
-  const array = []
-  if(currentIndex === 0 ){
-    for( let i=0; i<= 5; i++){
-      array[i] = reversedAllDotPoints[i]
+  const glowPoints = []
+  if(currentIndex >= 0 ){
+    for(let i=0; i< outerTrackPoints.length; i++){
+      if(i === nForOuter || i=== nForOuter+1 ){
+        glowPoints[i] = outerTrackPoints[i]
+      }
     }
-    for(let i = 0; i<= 3; i++){
-      array[i+3] = dotAllPoints[i]
-    }
-  }else if(currentIndex > 0){
-    for( let i=0; i<= dotAllPoints.length ; i++){
-      if( i >= currentIndex - 5 && i<= currentIndex + 3){
-        array[i] = dotAllPoints[i]
+    for(let i=0; i< innerTrackPoints.length; i++){
+      if(i === nForInner || i === nForInner+1 ){
+        glowPoints.push(innerTrackPoints[i])
       }
     }
   }else{
-    for( let i=0; i<= reversedAllDotPoints.length ; i++){
-      if( i >= Math.abs(currentIndex) - 5 && i <= Math.abs(currentIndex) + 3 ){
-        array[i] = reversedAllDotPoints[i]
+    for(let i=0; i< outerTrackPoints.length; i++){
+      if(-i === nForOuter || -i=== nForOuter-1 ){
+        glowPoints[i] = outerTrackPoints[outerTrackPoints.length-i-1]
+      }
+    }
+    for(let i=0; i< innerTrackPoints.length; i++){
+      if(-i === nForInner || -i === nForInner-1 ){
+        glowPoints.push(innerTrackPoints[innerTrackPoints.length-i-1])
       }
     }
   }
-  
-  
-  return array
+  return <group>
+  { glowPoints.map( point => <mesh> 
+  <LightForOnePiece p={point}/>
+  </mesh>)}
+  </group>
 }
-
-
-const Dot = ({p, color}) => {
-  return <mesh position={p} >
-    <cylinderGeometry args={[4,4,2]} />
-    <meshLambertMaterial color={color} />
-  </mesh>
-}
-*/

@@ -47,8 +47,7 @@ function RunningTrack (){
   
   <Car p={carp} camerap={camerap}/>
 
-  <Track p={[0,0,0]} r={38} currentIndex={currentIndex} color={'hotpink'}/>
-  <Track p={[0,0,0]} r={62} currentIndex={currentIndex} color={'hotpink'}/>
+  <Track currentIndex={currentIndex} />
   
   {wallData.map((item)=>{
     return <Wall p={item.p} r={ item.r } s={item.s } img={item.img} imgp={item.imgp}/>
