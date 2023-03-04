@@ -80,7 +80,7 @@ const Circle =({img}) =>{
   
   useEffect(()=>{
     const difference = getDifference()
-    setTimeout(()=>{setProjectBlockListening(false)}, difference*600)
+    setTimeout(()=>{setProjectBlockListening(false)}, difference*700)
   }, [currentProject])
   
   useEffect(()=>{

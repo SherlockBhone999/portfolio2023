@@ -11,9 +11,11 @@ const DiskObj = () => {
     <mesh >
       <CircleRug />
     </mesh>
+    {/*
     <mesh position={[0,0.4,0]} rotation={[0, Math.PI/2, 0]}> 
       <HelipadCircle />
     </mesh>
+    */}
     </group>
     )
 }

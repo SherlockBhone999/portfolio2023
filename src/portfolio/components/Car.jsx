@@ -88,7 +88,7 @@ export const Car = ({p, camerap}) => {
     }
   })
   return (
-  <mesh ref={ref} scale={0.1}>
+  <mesh ref={ref} scale={0.01}>
     <boxGeometry args={[1,1,1]} />
     <meshLambertMaterial color='black' />
   </mesh>
