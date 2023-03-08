@@ -89,19 +89,19 @@ export default function ControlPanel(){
   const { chosenCamera } = useContext(Context)
   
   if(chosenCamera === 'airplane'){
-    return <div class='fixed top-0 right-0 bg-black p-4 text-white'>
+    return <div class='fixed bottom-0 left-0 bg-black w-full p-4 text-white '>
     <ForAirplane />
     </div>
   }else if(chosenCamera === 'car' ){
-    return <div class='fixed top-0 right-0 bg-black p-4 text-white'>
+    return <div class='fixed bottom-0 left-0 bg-black w-full p-4 text-white'>
     <ForCar />
     </div>
   }else if(chosenCamera === 'gallery'){ 
-    return <div class='fixed top-0 right-0 bg-black p-4 text-white'>
+    return <div class='fixed bottom-0 left-0 bg-black w-full p-4 text-white'>
     <ForGallery />
     </div>
   }else{
-    return <div class='fixed top-0 right-0 bg-black p-4 text-white'>
+    return <div class='fixed bottom-0 left-0 bg-black w-full p-4 text-white bg-opacity-10'>
     <ForOrbit />
     </div>
   }

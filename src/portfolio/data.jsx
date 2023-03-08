@@ -1,4 +1,4 @@
-import myimg from './images/img1.jpg'
+import myimg from './images/169.jpg'
 import descriptionimg from './images/description.jpg'
 import img1 from './images/1.jpg'
 import img2 from './images/2.jpg'

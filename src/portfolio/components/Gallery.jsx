@@ -9,18 +9,20 @@ import {data } from '../data'
 const { p1, p2, p3, p4 } = data
 
 
-import { SquidSquare } from '../../assets/squid_game_sugar_honeycomb_square_cookie/Square'
-import { QuestionBlock } from '../../assets/mario_block/Mario_block'
+
 import { EmptyRoom } from '../../assets/empty_room/Empty_room'
 import { Desk } from '../../assets/desk/Desk'
 import { Tv2 } from '../../assets/tv2/Tv2'
+import { HallowCube } from '../../assets/hallow_cube/HallowCube'
+import { RecycleBin } from '../../assets/recycleBin/RecycleBin'
+
 //////////////////////////////////////////////////////////////
 
 const PicObject = ({chosen}) => {
   
   return (
     <mesh >
-      <boxGeometry args={[0,15,15]} />
+      <boxGeometry args={[0.2,17.5,17.5]} />
       <meshStandardMaterial map={chosen} />
     </mesh>
     )
@@ -80,7 +82,7 @@ const Circle =({img}) =>{
   
   useEffect(()=>{
     const difference = getDifference()
-    setTimeout(()=>{setProjectBlockListening(false)}, difference*700)
+    setTimeout(()=>{setProjectBlockListening(false)}, difference*900)
   }, [currentProject])
   
   useEffect(()=>{
@@ -99,8 +101,8 @@ const Circle =({img}) =>{
     <Picture  item={p3} img={img}/>
     <Picture  item={p4} img={img}/>
     
-    <mesh scale={9.8} position={[0,0,0]}>
-      <QuestionBlock />
+    <mesh scale={9.9} position={[0,0,0]} rotation={[Math.PI,0,0]}>
+      <HallowCube />
     </mesh>
     
 
@@ -115,7 +117,7 @@ const TV = ({img}) => {
   
   useFrame(( {camera})=>{
     if(chosenCamera === 'gallery' ){
-      //vec.set( -50-25-13+6+5, 10, -86-43-22 +11+7)
+      
       vec.set( -77, 10, -133)
       camera.position.lerp( vec, .1 )
       camera.lookAt( 0,0,0 )
@@ -124,7 +126,7 @@ const TV = ({img}) => {
   
   return (<group ref={ref} position={[20,0,-10]}>
   <mesh position={[0,-4,2]}>
-    <boxGeometry args={[40,20,0]} />
+    <boxGeometry args={[39,20,0]} />
     <meshLambertMaterial map={img}/>
   </mesh>
   
@@ -135,6 +137,8 @@ const TV = ({img}) => {
   <mesh scale={3} position={[0,-17,0]}>
     <Tv2 />
   </mesh>
+  
+  
   
   </group>)
 }
@@ -150,10 +154,17 @@ const Button = ({ currentImg, setCurrentImg, array}) => {
     }
   }
   
-  return <mesh onClick={handleClick} >
-    <boxGeometry args={[3,3,1]} />
-    <meshLambertMaterial color='lightgreen'/>
-  </mesh>
+  return <group onClick={handleClick} position={[47,0,-10]}>
+    <mesh>
+      <boxGeometry args={[3,3,1]} />
+      <meshLambertMaterial color='black'/>
+    </mesh>
+    <mesh position={[0,-10,0]} >
+      <boxGeometry args={[3,3,1]} />
+      <meshStandardMaterial color='green' />
+    </mesh>
+    
+  </group>
 }
 
 export default function Gallery(){
@@ -174,9 +185,19 @@ export default function Gallery(){
   <Button currentImg={currentImg} setCurrentImg={setCurrentImg} array={array} />
   </mesh >
   
-  <mesh position={[25-13+6 -22,-30, 43+21-10 ]} scale={35} rotation={[0, 0, 0]}>
-    <EmptyRoom />
-  </mesh>
+  <group position={[25-13+6 -22,-30, 43+21-10 ]} rotation={[0, 0, 0]}>
+    <mesh scale={35} >
+      <EmptyRoom />
+    </mesh>
+    <mesh position={[-75,8,60]} scale={1} >
+      <RecycleBin />
+    </mesh>
+  
+    <mesh position={[0,10,0]} scale={1} >
+  
+    </mesh>
+    
+  </group>
 
   
 
