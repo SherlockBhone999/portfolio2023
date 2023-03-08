@@ -5,10 +5,10 @@ import {useContext} from 'react'
 import {Context} from '../Portfolio'
 import { Wall, myWallData } from './WallsForTrack'
 import { Car, moveforward, movebackward, getCameraPositionsArray } from './Car'
-import { Track, getBigArray } from './Track'
+import { Track, centreArr } from './Track'
 
 
-const allDotPoints = getBigArray([0,0,0], 50)
+const allDotPoints = [...centreArr, centreArr[0] ]
 const cameraPoints = getCameraPositionsArray(allDotPoints)
 
 /////////////
@@ -22,21 +22,31 @@ function RunningTrack (){
   
   useEffect(()=>{
     
-    
-    if(currentIndex === -264 || currentIndex === 264 ){ 
+    if(currentIndex === -256 || currentIndex === 256 ){ 
           setCurrentIndex(0) 
           setCarp(allDotPoints[0])
           setCamerap(cameraPoints[0])
-        }
+      }
     
+  },[currentIndex])
+  
+  
+  useEffect(()=>{
+    if(currentIndex>=0){
+      setCarp(allDotPoints[currentIndex])
+      setCamerap(cameraPoints[currentIndex])
+    }else{
+      setCarp(allDotPoints[allDotPoints.length-1+currentIndex])
+      setCamerap(cameraPoints[cameraPoints.length-1+currentIndex])
+    }
   },[currentIndex])
   
   useEffect(()=>{
     if(moveCar === 'forward'){
-      moveforward(setCarp, setCamerap, currentIndex, setCurrentIndex, allDotPoints, cameraPoints )
+      moveforward(setCurrentIndex)
       setMoveCar('')
     }else if(moveCar === 'backward'){
-      movebackward(setCarp, setCamerap, currentIndex, setCurrentIndex, allDotPoints, cameraPoints )
+      movebackward(setCurrentIndex)
       setMoveCar('')
     }
   },[moveCar])

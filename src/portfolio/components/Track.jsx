@@ -1,6 +1,7 @@
 
 import {GlowStick} from '../../assets/glowstick/Glowstick'
-import { Lightbulb } from '../../assets/lightbulb/Lightbulb'
+import { useRef, useState, useEffect } from 'react'
+import { dataForLight } from './dataForLighting'
 
 const getCoordinates1 = (radian, r) => {
     const z = r * Math.sin(radian)
@@ -41,24 +42,24 @@ const getInnerCoordinatesArray = (fun,r) => {
 const getInnerArray = (r) => {
   const arr1 = getInnerCoordinatesArray(getCoordinates1,r )
   const array1 = []
-  for(let i=0; i<= arr1.length-1; i++ ){
+  for(let i=0; i<= arr1.length-3; i++ ){
     array1[i] = arr1[i]
   }
   const arr2 = getInnerCoordinatesArray(getCoordinates2,r )
   const array2 = []
-  for( let i=0; i<= arr2.length-1;i++){
+  for( let i=0; i<= arr2.length-3;i++){
     array2[i] = arr2[i]
   }
   
   const arr3 = getInnerCoordinatesArray(getCoordinates3,r )
   const array3 = []
-  for (let i=0; i<= arr3.length-1; i++){
+  for (let i=0; i<= arr3.length-3; i++){
     array3[i] = arr3[i]
   }
   
   const arr4 = getInnerCoordinatesArray(getCoordinates4,r )
   const array4 = []
-  for( let i=0; i<= arr4.length-1;i++){
+  for( let i=0; i<= arr4.length-3;i++){
     array4[i] = arr4[i]
   }
   
@@ -69,15 +70,16 @@ const getInnerArray = (r) => {
 }
 
 const InnerTrack = () =>{
-  const trackPoints = getInnerArray(36)
+  
   return <mesh >
 
-    {trackPoints.map(point => <group>
+    {innerArr.map(point => <group>
       <OnePiece p={point} />
     </group>)}
 
   </mesh>
 }
+
 //////////////////////
 
 //outer
@@ -133,13 +135,62 @@ const OuterTrack = () =>{
 }
 /////////////////!/!
 
+////centre
+
+const getCentreCoordinatesArray = (fun,r) => {
+  const u = Math.PI/64
+    const array = []
+    for(let i=0; i<= 65 ; i++){
+      const a = fun(u * i, r)
+      array.push(a)
+    }
+    return array
+}
+
+const getCentreArray = (r) => {
+  const arr1 = getCentreCoordinatesArray(getCoordinates1,r )
+  const array1 = []
+  for(let i=0; i<= arr1.length-3; i++ ){
+    array1[i] = arr1[i]
+  }
+  const arr2 = getCentreCoordinatesArray(getCoordinates2,r )
+  const array2 = []
+  for( let i=0; i<= arr2.length-3;i++){
+    array2[i] = arr2[i]
+  }
+  
+  const arr3 = getCentreCoordinatesArray(getCoordinates3,r )
+  const array3 = []
+  for (let i=0; i<= arr3.length-3; i++){
+    array3[i] = arr3[i]
+  }
+  
+  const arr4 = getCentreCoordinatesArray(getCoordinates4,r )
+  const array4 = []
+  for( let i=0; i<= arr4.length-3;i++){
+    array4[i] = arr4[i]
+  }
+  
+
+  const bigArray = array1.concat( array2 , array3, array4 )
+  
+  return bigArray
+}
+
+
+
+
+//////////////////////////
+
 export const Track = ({currentIndex}) =>{
   
   return <group position={[0,-4,0]}>
 
   <OuterTrack />
   <InnerTrack />
+  
   <AllLight currentIndex={currentIndex}/>
+  
   </group>
 }
 
@@ -155,36 +206,6 @@ const OnePiece = ({p}) => {
   </mesh>
 }
 
-const getCoordinatesArray = (fun,r) => {
-  const u = Math.PI/64
-    const array = []
-    for(let i=0; i<= 65 ; i++){
-      const a = fun(u * i, r)
-      array.push(a)
-    }
-    return array
-}
-
-const getAllCoordinates = (r) => {
-  const array1 = getCoordinatesArray(getCoordinates1,r)
-  const array2 = getCoordinatesArray(getCoordinates2,r)
-  const array3 = getCoordinatesArray(getCoordinates3,r)
-  const array4 = getCoordinatesArray(getCoordinates4,r)
-  const bigArray = array1.concat( array2, array3, array4 )
-  
-  return bigArray
-}
-
-
-export const getBigArray = (p,r) => {
-  const array = []
-  const bigArrayRaw = getAllCoordinates(r)
-  bigArrayRaw.map( subarray => {
-    const a = [ subarray[0]+p[0] , subarray[1]+p[1] , subarray[2]+p[2] ]
-    array.push(a)
-  })
-  return array
-}
 
 const LightForOnePiece = ({p}) =>{
   const color = 'blue'
@@ -194,45 +215,65 @@ const LightForOnePiece = ({p}) =>{
   const lp3 = [ objp[0]-1.2, objp[1]+3.2, objp[2]+0.3]
   
   return <group>
-  <pointLight position={lp1} intensity={1000} color={color} distance={2.8} />
-  <pointLight position={lp2} intensity={1000} color={color} distance={2.8} />
-  <pointLight position={lp3} intensity={1000} color={color} distance={2.8} />
+  <pointLight position={lp1} intensity={800} color={color} distance={2.8} />
+  <pointLight position={lp2} intensity={800} color={color} distance={2.8} />
+  <pointLight position={lp3} intensity={800} color={color} distance={2.8} />
   </group>
 }
 
+export const centreArr = getCentreArray(50)
+const innerArr = getInnerArray(36)
+const outerArr = getOuterArray(64)
+
 
 const AllLight = ({currentIndex}) => {
-  const allIndexPoints = getAllCoordinates(50)
-  const outerTrackPoints = getOuterArray(64)
-  const innerTrackPoints = getInnerArray(36)
-  const nForInner =Math.floor( ( currentIndex/allIndexPoints.length ) * innerTrackPoints.length )
   
-  const nForOuter =Math.floor( ( currentIndex/allIndexPoints.length ) * outerTrackPoints.length )
+  const [glowPoints, setGlowPoints ] = useState([])
   
-  const glowPoints = []
-  if(currentIndex >= 0 ){
-    for(let i=0; i< outerTrackPoints.length; i++){
-      if(i === nForOuter || i=== nForOuter+1 ){
-        glowPoints[i] = outerTrackPoints[i]
-      }
+  useEffect(()=>{
+    
+    if(currentIndex>=0){
+        const array = []
+        const a = dataForLight[currentIndex][0]
+        const b = dataForLight[currentIndex][1]
+        const c = dataForLight[currentIndex][2]
+        const d = dataForLight[currentIndex][3]
+        
+        if( currentIndex > 59 && currentIndex < 79 || currentIndex > 187 && currentIndex < 207 ){
+          array[0] = innerArr[a]
+          array[1] = innerArr[b]
+          array[2] = innerArr[c]
+          array[3] = innerArr[d]
+        }else{
+          array[0] = outerArr[a]
+          array[1] = outerArr[b]
+          array[2] = innerArr[c]
+          array[3] = innerArr[d]
+        }
+        setGlowPoints(array)
+    }else{
+        
+        const array = []
+        const a = dataForLight[dataForLight.length-1+currentIndex][0]
+        const b = dataForLight[dataForLight.length-1+currentIndex][1]
+        const c = dataForLight[dataForLight.length-1+currentIndex][2]
+        const d = dataForLight[dataForLight.length-1+currentIndex][3]
+        
+        if( currentIndex < dataForLight.length-207 && currentIndex > dataForLight.length-187 || currentIndex< dataForLight.length-79 && currentIndex > dataForLight.length-59){
+          array[0] = innerArr[a]
+          array[1] = innerArr[b]
+          array[2] = innerArr[c]
+          array[3] = innerArr[d]
+        }else{
+          array[0] = outerArr[a]
+          array[1] = outerArr[b]
+          array[2] = innerArr[c]
+          array[3] = innerArr[d]
+        }
+        setGlowPoints(array)
     }
-    for(let i=0; i< innerTrackPoints.length; i++){
-      if(i === nForInner || i === nForInner+1 ){
-        glowPoints.push(innerTrackPoints[i])
-      }
-    }
-  }else{
-    for(let i=0; i< outerTrackPoints.length; i++){
-      if(-i === nForOuter || -i=== nForOuter-1 ){
-        glowPoints[i] = outerTrackPoints[outerTrackPoints.length-i-1]
-      }
-    }
-    for(let i=0; i< innerTrackPoints.length; i++){
-      if(-i === nForInner || -i === nForInner-1 ){
-        glowPoints.push(innerTrackPoints[innerTrackPoints.length-i-1])
-      }
-    }
-  }
+  },[currentIndex])
+  
   return <group>
   { glowPoints.map( point => <mesh> 
   <LightForOnePiece p={point}/>

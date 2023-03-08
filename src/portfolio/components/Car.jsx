@@ -6,12 +6,12 @@ import {Context} from '../Portfolio'
 
 export const getCameraPositionsArray = (bigArr) => {
   const array = []
-  for( let i =1 ; i <= 8; i++){
-    const a = bigArr[bigArr.length - (8-i)] 
+  for( let i =0 ; i <= 6; i++){
+    const a = bigArr[bigArr.length - (7-i)] 
     array.push(a)
   }
   
-  for ( let j=0; j<= bigArr.length - 9 ; j++){
+  for ( let j=0; j<= bigArr.length - 8 ; j++){
     const b = bigArr[j]
     array.push(b)
   }
@@ -22,46 +22,24 @@ export const getCameraPositionsArray = (bigArr) => {
 
 
 
-////
-export const moveforward = (setCarp, setCamerap , currentIndex, setCurrentIndex, allDotPoints, cameraPoints ) => {
-    
-    
-    for(let i= 0 ; i<= 33 ; i++){
-      setTimeout(()=>{
-        //>= 0
-        if( currentIndex >= 0){
-          setCarp(allDotPoints[currentIndex +i])
-          setCamerap( cameraPoints[currentIndex +i] )
-        }else{
-          setCarp(allDotPoints[ allDotPoints.length - (Math.abs(currentIndex )- i) ])
-          setCamerap( cameraPoints[ cameraPoints.length - (Math.abs(currentIndex) - i)])
-        }
-        setCurrentIndex( currentIndex + i)
-        
-      }, i*100) //20
-    }
+
+  
+export const moveforward = (setCurrentIndex) => {
+  for(let i=0;i<=31;i++){
+    setTimeout(()=>{
+      setCurrentIndex(prevv => prevv + 1)
+    },i*100)
   }
-  
-export const movebackward = (setCarp, setCamerap , currentIndex, setCurrentIndex , allDotPoints, cameraPoints ) => {
-    
-    
-    for(let i= 0 ; i<= 33 ; i++){
-      setTimeout(()=>{
-        // <= 0
-        if( currentIndex <= 0 ){
-          setCarp(allDotPoints[ allDotPoints.length -(Math.abs(currentIndex )+ i) ])
-          setCamerap( cameraPoints[ cameraPoints.length -(Math.abs(currentIndex) + i)])
-        }else{
-        setCarp(allDotPoints[ currentIndex -i])
-        setCamerap( cameraPoints[ currentIndex -i] )
-        }
-        setCurrentIndex( currentIndex - i )
-        
-      }, i*100)
-    }
+}
+
+export const movebackward = (setCurrentIndex) => {
+  for(let i=0; i<=31; i++){
+    setTimeout(()=>{
+      setCurrentIndex(prevv => prevv -1 )
+    },i*100)
   }
-  
-  
+}
+
   
 export const Car = ({p, camerap}) => {
   const ref= useRef()
