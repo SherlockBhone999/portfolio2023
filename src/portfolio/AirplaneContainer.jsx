@@ -144,7 +144,9 @@ const Box = ( ) => {
   
 
 ////////////
-  
+  useEffect(()=>{
+    setStandbyYaw(-2*Math.PI/3)
+  },[])
   
   
 // /////////////
