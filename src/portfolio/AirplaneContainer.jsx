@@ -122,10 +122,10 @@ const moveCamera = (vec2, camera, airplanePosition, airplaneYaw, delayed , setDe
     
     if(delayed){
       setTimeout(()=>{
-        camera.position.lerp( vec2 , .005 )
+        camera.position.lerp( vec2 , .015 )
         setDelayed(false)
       }, 500)
-    }else { camera.position.lerp( vec2 , .01 ) }
+    }else { camera.position.lerp( vec2 , .015 ) }
   }
   
  
@@ -159,7 +159,7 @@ const Box = ( ) => {
   useFrame(({camera})=>{
    // move plane
     vec.set(p[0], p[1] , p[2] )
-    ref.current.position.lerp( vec, .02)
+    ref.current.position.lerp( vec, .04)
     
     
     //move and rotate camera

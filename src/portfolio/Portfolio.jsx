@@ -50,8 +50,6 @@ const OrbitCamera = ({chosenCamera}) => {
     }else if(chosenCamera==='orbit'){
       camera.lookAt(0,0,0)
     }
-    
-    
   })
   return <OrbitControls />
 }
