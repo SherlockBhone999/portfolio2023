@@ -31,7 +31,7 @@ const OrbitCamera = ({chosenCamera}) => {
   const i = [100+50,0,0]
   const p = [-50,0,-86]
   const o = [-50,0,86]
-  const ii = [100+200,60,150]
+  const ii = [100+200,60,-150]
   const pp = [-50-80, 30, -86-60]
   const oo = [-50-25, 30, 86+43]
   useFrame(({camera})=>{
@@ -88,7 +88,7 @@ export default function Portfolio() {
   const [airplanePosition, setAirplanePosition ] = useState('other')
   const [currentProject, setCurrentProject ] = useState(p1)
   const [moveCar , setMoveCar] = useState('')
-  const [bg, setBg] = useState('bg-gray-600')
+  const [bg, setBg] = useState('bg-gray-800')
   const [projectBlockListening, setProjectBlockListening ] = useState(true)
   const [textForNavi, setTextForNavi ] = useState('')
   

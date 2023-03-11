@@ -210,14 +210,15 @@ const OnePiece = ({p}) => {
 const LightForOnePiece = ({p}) =>{
   const color = 'blue'
   const objp = p
+  const d = 2.5
   const lp1 = [ objp[0] + 1, objp[1]+3.2, objp[2] + 1 ]
   const lp2 = [ objp[0]+0.3 , objp[1]+3.2, objp[2]- 1.2 ]
   const lp3 = [ objp[0]-1.2, objp[1]+3.2, objp[2]+0.3]
   
-  return <group>
-  <pointLight position={lp1} intensity={800} color={color} distance={2.8} />
-  <pointLight position={lp2} intensity={800} color={color} distance={2.8} />
-  <pointLight position={lp3} intensity={800} color={color} distance={2.8} />
+  return <group >
+  <pointLight position={lp1} intensity={800} color={color} distance={d} />
+  <pointLight position={lp2} intensity={800} color={color} distance={d} />
+  <pointLight position={lp3} intensity={800} color={color} distance={d} />
   </group>
 }
 
