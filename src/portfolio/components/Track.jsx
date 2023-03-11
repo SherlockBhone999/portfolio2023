@@ -208,9 +208,9 @@ const OnePiece = ({p}) => {
 
 
 const LightForOnePiece = ({p}) =>{
-  const color = 'blue'
+  const color = 'red'
   const objp = p
-  const d = 2.5
+  const d = 3
   const lp1 = [ objp[0] + 1, objp[1]+3.2, objp[2] + 1 ]
   const lp2 = [ objp[0]+0.3 , objp[1]+3.2, objp[2]- 1.2 ]
   const lp3 = [ objp[0]-1.2, objp[1]+3.2, objp[2]+0.3]
