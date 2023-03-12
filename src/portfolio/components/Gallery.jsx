@@ -119,7 +119,7 @@ const TV = ({img}) => {
     if(chosenCamera === 'gallery' ){
       
       vec.set( -77, 10, -133)
-      camera.position.lerp( vec, .1 )
+      camera.position.lerp( vec, .02 )
       camera.lookAt( 0,0,0 )
     }
   })
