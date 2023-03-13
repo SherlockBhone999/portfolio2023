@@ -54,7 +54,7 @@ const Picture = ({item, img}) => {
 
 const Circle =({img}) =>{
   const ref = useRef()
-  const [r, setR] = useState(0)
+  const [r, setR] = useState(3/4*Math.PI)
   const { currentProject, projectBlockListening, setProjectBlockListening } = useContext(Context)
   const prevProjectRef = useRef({id:0})
   
@@ -90,7 +90,7 @@ const Circle =({img}) =>{
   },[currentProject])
   
   useEffect(()=>{
-    setTimeout(()=>{setProjectBlockListening(false)}, 3000)
+    setTimeout(()=>{setProjectBlockListening(false)}, 6000)
   },[])
   
   return <mesh ref={ref} position={[-20,0,0]} >

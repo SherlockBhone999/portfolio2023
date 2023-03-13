@@ -16,9 +16,9 @@ function RunningTrack (){
     
   const [carp, setCarp] = useState(allDotPoints[0])
   const [camerap , setCamerap ] = useState(cameraPoints[0])
-  const [currentIndex, setCurrentIndex ] = useState(0)
+  //const [currentIndex, setCurrentIndex ] = useState(0)
   const [ wallData, setWallData ] = useState(myWallData)
-  const { moveCar, setMoveCar } = useContext(Context)
+  const { moveCar, setMoveCar, currentIndex, setCurrentIndex } = useContext(Context)
   
   useEffect(()=>{
     

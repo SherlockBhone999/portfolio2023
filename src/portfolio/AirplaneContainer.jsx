@@ -141,6 +141,7 @@ const Box = ( ) => {
   const [pitch, setPitch ] = useState(0)
   const {airplaneYaw , setAirplaneYaw, airplaneMovement, 
   chosenCamera, setAirplanePosition, airplanePosition } = useContext(Context)
+
   
 
 ////////////

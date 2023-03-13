@@ -76,6 +76,8 @@ export default function Portfolio() {
   const [bg, setBg] = useState('bg-gray-800')
   const [projectBlockListening, setProjectBlockListening ] = useState(true)
   const [textForNavi, setTextForNavi ] = useState('')
+  const [currentIndex, setCurrentIndex ] = useState(0)
+  
   
   return <Context.Provider value={{
   
@@ -97,6 +99,8 @@ export default function Portfolio() {
   setProjectBlockListening,
   textForNavi,
   setTextForNavi,
+  currentIndex,
+  setCurrentIndex,
   
   }}>
   <App />

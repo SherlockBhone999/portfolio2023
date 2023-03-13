@@ -82,6 +82,10 @@ const LiveDisk = () => {
      rotateToStandby(rr)
   },[airplanePosition])
   
+  useEffect(()=>{
+    setStandbyYaw(-2*Math.PI/3)
+  },[])
+  
   
   useFrame(()=>{
     const rr = ref.current.rotation

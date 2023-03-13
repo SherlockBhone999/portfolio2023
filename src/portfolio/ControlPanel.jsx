@@ -134,7 +134,7 @@ export default function ControlPanel(){
 
 const MainPanel = () => {
   
-  const {chosenCamera, setChosenCamera, airplanePosition, setAirplaneYaw, setAirplaneMovement } = useContext(Context)
+  const {chosenCamera, setChosenCamera, airplanePosition, setAirplaneYaw, setAirplaneMovement , currentIndex } = useContext(Context)
   const [hide, setHide] = useState('')
   const a = 'm-1 flex border-2 border-black rounded p-1'
   const b = 'm-1 flex border-2 border-black bg-blue-400 rounded p-1 text-white'
@@ -216,8 +216,10 @@ const MainPanel = () => {
       },1000)
       setTimeout(()=>{
         setAirplaneMovement('PtoO')
-        setHide('')
       },2000)
+      setTimeout(()=>{
+        setHide('')
+      },14000)
       
     }
     else if(airplanePosition==='intro'){
@@ -228,8 +230,10 @@ const MainPanel = () => {
       },2000)
       setTimeout(()=>{
         setAirplaneMovement('ItoO')
-        setHide('')
       },4000)
+      setTimeout(()=>{
+        setHide('')
+      },13000)
       
     }
   }
@@ -239,6 +243,16 @@ const MainPanel = () => {
     else if(airplanePosition==='projects'){ setStyle([b,a,a]) }
     else if(airplanePosition === 'other'){ setStyle([a,a,b]) }
   },[airplanePosition])
+  
+  useEffect(()=>{
+    if(airplanePosition === 'intro'){
+      if(currentIndex === 256 || currentIndex === 0 || currentIndex === -256){
+        setHide('')
+      }else{
+        setHide('invisible')
+      }
+    }
+  },[currentIndex])
   
   return <div class={hide} >
   <div class='fixed bottom-10 left-10 p-2 bg-gray-200 grid rounded-lg'>
